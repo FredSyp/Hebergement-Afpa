@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+			<div id="global-loader">
+				<img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+			</div>
+
+			<div class="page">
+				<div>
+					<div class="col col-login mx-auto text-center">
+						<a href="index.html">
+							<img src="../assets/images/brand/logo.png" class="header-brand-img" alt="">
+						</a>
+					</div>
+					<div class="container-login100">
+						<div class="wrap-login100 p-0">
+							<div class="card-body">
+								<form class="login100-form validate-form">
+									<span class="login100-form-title">
+										Inscription
+									</span>
+									<div class="wrap-input100 validate-input" data-bs-validate = "Veuillez entrez une adresse valide par exemple : ex@abc.xyz">
+										<input class="input100" type="text" name="email" placeholder="Nom d'utilisateur">
+										<span class="focus-input100"></span>
+										<span class="symbol-input100">
+											<i class="mdi mdi-account" aria-hidden="true"></i>
+										</span>
+									</div>
+									<div class="wrap-input100 validate-input" data-bs-validate = "Veuillez entrez une adresse valide par exemple : ex@abc.xyz">
+										<input class="input100" type="text" name="email" placeholder="Email">
+										<span class="focus-input100"></span>
+										<span class="symbol-input100">
+											<i class="zmdi zmdi-email" aria-hidden="true"></i>
+										</span>
+									</div>
+									<div class="wrap-input100 validate-input" data-bs-validate = "Mot de passe requis">
+										<input class="input100" type="password" name="pass" placeholder="Mot de passe">
+										<span class="focus-input100"></span>
+										<span class="symbol-input100">
+											<i class="zmdi zmdi-lock" aria-hidden="true"></i>
+										</span>
+									</div>
+									<label class="custom-control custom-checkbox mt-4">
+										<input type="checkbox" class="custom-control-input">
+										<span class="custom-control-label">J'accepte <a href="#">les conditions d'utilisations</a></span>
+									</label>
+									<div class="container-login100-form-btn">
+										<a href="index.html" class="login100-form-btn btn-primary">
+											Inscription
+										</a>
+									</div>
+									<div class="text-center pt-3">
+										<p class="text-dark mb-0">Vous avez déja un compte ?<a href="{{path('app_login')}}" class="text-primary ms-1">Se connecter</a></p>
+									</div>
+								</form>
+							</div>
+							<div class="card-footer">
+								<div class="d-flex justify-content-center my-3">
+									<a href="javascript:void(0)" class="social-login  text-center me-4">
+										<i class="fa fa-google"></i>
+									</a>
+									<a href="javascript:void(0)" class="social-login  text-center me-4">
+										<i class="fa fa-facebook"></i>
+									</a>
+									<a href="javascript:void(0)" class="social-login  text-center">
+										<i class="fa fa-twitter"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+{% endblock %}

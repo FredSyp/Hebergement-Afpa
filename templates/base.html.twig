@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Noa – Bootstrap 5 Admin & Dashboard Template">
+		<meta name="author" content="Spruko Technologies Private Limited">
+		<meta name="keywords" content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
+        <title>Hébergement-Afpa - {% block title %}{% endblock %}</title>
+        <link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico" />
+        <link id="style" href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="../assets/css/style.css" rel="stylesheet"/>
+		<link href="../assets/css/skin-modes.css" rel="stylesheet" />
+        <link href="../assets/css/icons.css" rel="stylesheet"/>
+
         {% block stylesheets %}
         {% endblock %}
 
         {% block javascripts %}
         {% endblock %}
+
     </head>
-    <body>
+
+    <body class="ltr login-img">
+
         {% block body %}{% endblock %}
+
     </body>
+
+		<script src="../assets/js/jquery.min.js"></script>
+
+		<script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+		<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+		<script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>
+
+		<script src="../assets/js/sticky.js"></script>
+
+		<script src="../assets/js/themeColors.js"></script>
+
+		<script src="../assets/js/custom.js"></script>
+
 </html>
