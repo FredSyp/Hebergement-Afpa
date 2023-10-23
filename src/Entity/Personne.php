@@ -2,8 +2,12 @@
 
 namespace App\Entity;
 
+use Civilite;
+use RolePersonne;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 
 /**
@@ -12,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="personne", indexes={@ORM\Index(name="personne_role_personne_FK", columns={"id_role_personne"}), @ORM\Index(name="personne_civilite0_FK", columns={"id_civilite"})})
  * @ORM\Entity(repositoryClass= "App\Repository\PersonneRepository") 
  */
-class Personne 
+class Personne implements PasswordAuthenticatedUserInterface, UserInterface
 {
     /**
      * @var int
@@ -122,7 +126,7 @@ class Personne
     private $dateMajPers;
 
     /**
-     * @var \RolePersonne
+     * @var RolePersonne
      *
      * @ORM\ManyToOne(targetEntity="RolePersonne")
      * @ORM\JoinColumns({
@@ -132,7 +136,7 @@ class Personne
     private $idRolePersonne;
 
     /**
-     * @var \Civilite
+     * @var Civilite
      *
      * @ORM\ManyToOne(targetEntity="Civilite")
      * @ORM\JoinColumns({
@@ -141,6 +145,32 @@ class Personne
      */
     private $idCivilite;
 
+
+    public function getUserIdentifier(): string
+    {
+        return $this->numeroBeneficiaire;
+    }
+    public function eraseCredentials(): void
+    {
+       
+    }
+    public function getSalt(): ?string
+    {
+        // You can leave this as null, unless you're using custom password hashing
+        return null;
+    }
+    public function getUsername(): string
+    {
+        return $this->numeroBeneficiaire;
+    }
+    public function getPassword(): string
+    {
+        return $this->mdp;
+    }
+    public function getRoles(): array
+    {
+        return [$this->codeRoles];
+    }
     public function getIdPersonne(): ?int
     {
         return $this->idPersonne;

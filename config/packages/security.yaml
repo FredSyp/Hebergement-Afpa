@@ -12,7 +12,7 @@ security:
     app_user_provider:
       entity:
         class: App\Entity\Personne
-        property: email
+        property: numeroBeneficiaire
 
   firewalls:
     dev:
@@ -22,6 +22,12 @@ security:
     secured_area:
       form_login:
         enable_csrf: true
+      custom_authenticator: App\Security\PersonneAuthenticator
+      entry_point: App\Security\PersonneAuthenticator
+      logout:
+        path: app_logout
+        # where to redirect after logout
+        # target: app_any_route
 
     main:
       lazy: true
