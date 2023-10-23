@@ -1,61 +1,75 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <!-- FAVICON -->
-		<link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico" />
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<!-- FAVICON -->
+		<link
+		rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico"/>
 
 		<!-- TITLE -->
 		<title>Noa – Bootstrap 5  Admin & Dashboard Template</title>
 
 		<!-- BOOTSTRAP CSS -->
-		<link id="style" href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link
+		id="style" href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
 		<!-- STYLE CSS -->
 		<link href="../assets/css/style.css" rel="stylesheet"/>
-		<link href="../assets/css/skin-modes.css" rel="stylesheet" />
+		<link
+		href="../assets/css/skin-modes.css" rel="stylesheet"/>
 
 		<!--- FONT-ICONS CSS -->
-		<link href="../assets/css/icons.css" rel="stylesheet"/>
-        {% block stylesheets %}
-        
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}
-        
-        {% endblock %}
+		<link href="../assets/css/icons.css" rel="stylesheet"/> {% block stylesheets %}{% endblock %}
+		</head>
+		<body>
+			{% block body %}{% endblock %}
+
+
+			{% block javascripts %}
+				<!-- JQUERY JS -->
+				<script src="../assets/js/jquery.min.js"></script>
+
+				<!-- BOOTSTRAP JS -->
+				<script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+				<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+				<!-- Internal Input tags js-->
+				<script src="../assets/plugins/inputtags/inputtags.js"></script>
+
+				<!-- SIDE-MENU JS -->
+				<script src="../assets/plugins/sidemenu/sidemenu.js"></script>
+
+				<!-- CHART JS -->
+				<script src="../assets/plugins/chart/Chart.bundle.js"></script>
+				<script src="../assets/plugins/chart/utils.js"></script>
+				<script src="../assets/js/chart.js"></script>
 
 
 
+				<!-- INTERNAL GALLERY JS -->
+				<script src="../assets/plugins/gallery/picturefill.js"></script>
+				<script src="../assets/plugins/gallery/lightgallery.js"></script>
+				<script src="../assets/plugins/gallery/lg-pager.js"></script>
+				<script src="../assets/plugins/gallery/lg-autoplay.js"></script>
+				<script src="../assets/plugins/gallery/lg-fullscreen.js"></script>
+				<script src="../assets/plugins/gallery/lg-zoom.js"></script>
+				<script src="../assets/plugins/gallery/lg-hash.js"></script>
+				<script src="../assets/plugins/gallery/lg-share.js"></script>
+				<script src="../assets/plugins/gallery/lightgallery-1.js"></script>
 
-        {% block javascripts %}
-		<!-- JQUERY JS -->
-		<script src="../assets/js/jquery.min.js"></script>
+		
 
-		<!-- BOOTSTRAP JS -->
-		<script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
-		<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+				<!-- STICKY JS -->
+				<script src="../assets/js/sticky.js"></script>
 
-		<!-- Internal Input tags js-->
-		<script src="../assets/plugins/inputtags/inputtags.js"></script>
+			
+				<!-- CUSTOM JS -->
+				<script src="../assets/js/custom.js"></script>
 
-        <!-- SIDE-MENU JS -->
-		<script src="../assets/plugins/sidemenu/sidemenu.js"></script>
-
-		<!-- Perfect SCROLLBAR JS-->
-		<script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>
-		<script src="../assets/plugins/p-scroll/pscroll.js"></script>
-
-		<!-- STICKY JS -->
-		<script src="../assets/js/sticky.js"></script>
-
-		<!-- COLOR THEME JS -->
-		<script src="../assets/js/themeColors.js"></script>
-
-		<!-- CUSTOM JS -->
-		<script src="../assets/js/custom.js"></script>
-        {% endblock %}
-    </body>
-</html>
+			{% endblock %}
+		</body>
+	</html>
