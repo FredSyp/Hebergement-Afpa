@@ -26,7 +26,7 @@ class RegisterController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $hashedPassword = $passwordHasher->hashPassword($user);
-            
+
             $user->setMdp($hashedPassword);
 
             $user->setCodeRoles(['ROLE_USER']);
@@ -34,7 +34,7 @@ class RegisterController extends AbstractController
             $user->setIpInscription($request->getClientIp());
             $user->setTrackerInscription($_SERVER["HTTP_USER_AGENT"]);
             $user->setIdRolePersonne(1);
-            
+
             // Enregistre l'utilisateur en bdd
             $entityManager->persist($user);
             $entityManager->flush();
@@ -44,7 +44,8 @@ class RegisterController extends AbstractController
         }
 
         return $this->render('register/index.html.twig', [
-            'form' => $form->createView(), // Passez le formulaire à la vue
+            'form' => $form->createView(),
+            // Passez le formulaire à la vue
         ]);
-    }   
+    }
 }

@@ -18,6 +18,9 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
  */
 class Personne implements PasswordAuthenticatedUserInterface, UserInterface
 {
+    #[ORM\Column(type: 'json')]
+    private array $roles = [];
+
     /**
      * @var int
      *
@@ -37,49 +40,49 @@ class Personne implements PasswordAuthenticatedUserInterface, UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="mdp", type="string", length=150, nullable=false)
+     * @ORM\Column(name="mdp", type="string", length=150, nullable=true)
      */
     private $mdp;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="nom", type="string", length=150, nullable=false)
+     * @ORM\Column(name="nom", type="string", length=150, nullable=true)
      */
     private $nom;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="prenom", type="string", length=150, nullable=false)
+     * @ORM\Column(name="prenom", type="string", length=150, nullable=true)
      */
     private $prenom;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="email", type="string", unique=true, length=255, nullable=false)
+     * @ORM\Column(name="email", type="string", unique=true, length=255, nullable=true)
      */
     private $email;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="num_telephone", type="string", length=20, nullable=false)
+     * @ORM\Column(name="num_telephone", type="string", length=20, nullable=true)
      */
     private $numTelephone;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="date_naissance", type="date", nullable=false)
+     * @ORM\Column(name="date_naissance", type="date", nullable=true)
      */
     private $dateNaissance;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="lieu_naissance", type="string", length=255, nullable=false)
+     * @ORM\Column(name="lieu_naissance", type="string", length=255, nullable=true)
      */
     private $lieuNaissance;
 
@@ -93,7 +96,7 @@ class Personne implements PasswordAuthenticatedUserInterface, UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="code_roles", type="string", length=25, nullable=false)
+     * @ORM\Column(name="code_roles", type="string", length=25, nullable=true)
      */
     private $codeRoles;
 
@@ -107,7 +110,7 @@ class Personne implements PasswordAuthenticatedUserInterface, UserInterface
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_inscription", type="date", nullable=false)
+     * @ORM\Column(name="date_inscription", type="date", nullable=true)
      */
     private $dateInscription;
 
@@ -169,6 +172,8 @@ class Personne implements PasswordAuthenticatedUserInterface, UserInterface
     }
     public function getRoles(): array
     {
+
+
         return [$this->codeRoles];
     }
     public function getIdPersonne(): ?int
@@ -284,12 +289,12 @@ class Personne implements PasswordAuthenticatedUserInterface, UserInterface
         return $this;
     }
 
-    public function getCodeRoles()
+    public function getCodeRoles():string
     {
-        return array('ROLE_USER');
+        return   $this->codeRoles;
     }
 
-    public function setCodeRoles( $codeRoles): static
+    public function setCodeRoles(string $codeRoles): static
     {
         $this->codeRoles = $codeRoles;
 

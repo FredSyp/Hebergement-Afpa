@@ -184,6 +184,11 @@ License        :   Licensed under ThemeForest License
     box-sizing: border-box;
 }
 
+.modal-content-demo {
+  width: 80%; /* Largeur du modal */
+}
+
+
 html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
