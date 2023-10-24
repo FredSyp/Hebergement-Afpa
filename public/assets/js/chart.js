@@ -12,10 +12,10 @@ $(function () {
 
     // Taux d'occupation journalier (Hébergés)
     var hebergeData = {
-        labels: ['Libres', 'Réservés', 'Occupés', 'En travaux'],
+        labels: ['Libres', 'Réservés', 'Occupés'],
         datasets: [{
-            data: [15, 25, 35, 10],
-            backgroundColor: ['#a4dfdf', '#9ad0f5', '#ffcf9f', '#ffb0c1']
+            data: [15, 25, 35],
+            backgroundColor: ['#a4dfdf', '#9ad0f5', '#ffcf9f']
         }]
     };
 
@@ -48,12 +48,11 @@ $(function () {
     });
 
 	// Données du chiffre d'affaires mensuel
-    // Données du chiffre d'affaires mensuel
     var chiffreAffaireData = {
         labels: ['Total', 'Restant'],
         datasets: [{
             data: [2000, 2500],
-            backgroundColor: ['#ff9800','#607d8b']
+            backgroundColor: ['#a4dfdf','#ffb0c1']
         }]
     };
 
