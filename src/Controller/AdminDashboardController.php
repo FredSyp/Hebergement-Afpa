@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use DateTime;
 use App\Entity\Personne;
+use App\Entity\RolePersonne;
 use App\Form\PersonneFormType;
 use App\Repository\PersonneRepository;
 use App\Repository\RendezVousRepository;
@@ -18,7 +19,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AdminDashboardController extends AbstractController
 {
-    public function generateAndHashPassword(string $numeroBeneficiaire, UserPasswordHasherInterface $passwordHasher):string
+    public function generateAndHashPassword(string $numeroBeneficiaire, UserPasswordHasherInterface $passwordHasher): string
     {
         // Générer le mot de passe
         $motDePasse = 'afpa' . $numeroBeneficiaire . '!';
@@ -37,6 +38,8 @@ class AdminDashboardController extends AbstractController
         $dateInscription = new DateTime();
         $rendezVous = $rdvRepository->findAll();
         $form->handleRequest($request);
+        $rolePersonneRepository = $entityManager->getRepository(RolePersonne::class);
+        $rolePersonne = $rolePersonneRepository->find(1);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -44,11 +47,12 @@ class AdminDashboardController extends AbstractController
 
             $user->setMdp($hashedPassword);
 
-            $user->setCodeRoles('ROLE_USER');
+            $user->setCodeRoles('ROLE_ADMIN');
             $user->setDateInscription($dateInscription);
             $user->setIpInscription($request->getClientIp());
             $user->setTrackerInscription($_SERVER["HTTP_USER_AGENT"]);
-            $user->setIdRolePersonne(null);
+            $user->setIdRolePersonne($rolePersonne);
+
 
             $entityManager->persist($user);
             $entityManager->flush();

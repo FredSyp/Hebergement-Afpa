@@ -1,5 +1,8 @@
 {
     "[twig]": {
         "editor.defaultFormatter": "Jota0222.multi-formatter"
+    },
+    "[php]": {
+        "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
     }
 }

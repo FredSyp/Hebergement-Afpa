@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use Civilite;
-use RolePersonne;
+use App\Entity\Civilite;
+use App\Entity\RolePersonne;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
