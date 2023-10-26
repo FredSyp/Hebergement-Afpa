@@ -37,7 +37,7 @@ $(function (e) {
 		buttons: ['copy', 'excel', 'pdf', 'colvis'],
 		responsive: true,
 		language: {
-			searchPlaceholder: 'Search...',
+			searchPlaceholder: 'Recherche...',
 			sSearch: '',
 		}
 	});

@@ -27,10 +27,7 @@ class AdminDashboardController extends AbstractController
 
     public function redirectToSidebarTabs(): RedirectResponse{
         return $this->redirectToRoute('admin_espace_hebergement');
-        return $this->redirectToRoute('app_admin_incidents_avertissements');
         return $this->redirectToRoute('app_admin_chambres');
-        return $this->redirectToRoute('app_admin_comptabilite');
         return $this->redirectToRoute('app_admin_rendez_vous');
-        return $this->redirectToRoute('app_admin_mise_a_jour_consignes');
     }
 }

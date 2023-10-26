@@ -1,9 +1,140 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminChambresController!{% endblock %}
+{% block title %}Chambres
+{% endblock %}
+
 
 {% block body %}
-{% include "commun/header.html.twig" %}
-{% include "commun/side-bar-admin.html.twig" %}
-{% include "commun/header.html.twig" %}
-{% endblock %}
+
+	<body
+		class="ltr app sidebar-mini">
+		<!-- GLOBAL-LOADER -->
+		<div id="global-loader">
+			<img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+		</div>
+		<!-- /GLOBAL-LOADER -->
+
+		<!-- PAGE -->
+		<div class="page">
+			<div
+				class="page-main">
+
+				<!-- app-Header -->
+				{% include "commun/header.html.twig" %}
+				<!-- /app-Header -->
+
+				<!--APP-SIDEBAR-->
+				{% include "commun/side-bar-admin.html.twig" %}
+				<!--/APP-SIDEBAR-->
+
+				<!--app-content open-->
+					<div class="app-content main-content mt-0"> <div
+						class="side-app">
+						<!-- CONTAINER -->
+						<div
+							class="main-container container-fluid">
+							<!-- PAGE-HEADER -->
+							<div class="page-header">
+								<div>
+									<h1 class="page-title">Chambres</h1>
+								</div>
+								<div class="ms-auto pageheader-btn">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item">
+											<a href="javascript:void(0);">Home</a>
+										</li>
+										<li class="breadcrumb-item active" aria-current="page">Chambres</li>
+									</ol>
+								</div>
+							</div>
+							<!-- PAGE-HEADER END -->
+
+
+							<div class="row">
+								<div class="col-lg-12 col-md-12">
+									<div class="card">
+										<div class="card-header border-bottom">
+											<h3 class="card-title">Taux d'occupation journalier (Chambres)</h3>
+										</div>
+										<div class="card-body">
+											<div class="chart-container">
+												<canvas id="chartChambres" class="h-275"></canvas>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="row row-sm">
+										<div class="col-lg-12">
+											<div class="card">
+												<div class="card-header border-bottom">
+													<h3 class="card-title">Liste des chambres</h3>
+												</div>
+												<div class="card-body">
+													<div class="table-responsive export-table">
+														<table id="editable-file-datatable" class="table editable-table deleted-table table-nowrap table-bordered table-edit wp-100">
+															<thead>
+																<button id="button" class="btn btn-primary mb-4 data-table-btn">Ajouter une chambre</button>
+																<tr>
+																	<th>N° Chambre</th>
+																	<th>Statut d'occupation</th>
+																	<th>Occupant</th>
+																	<th>Date Entrée</th>
+																	<th>Date Sortie</th>
+																	<th>Chambre en travaux</th>
+																	<th>Edit</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr data-id="1">
+																	<td data-field="numero_chambre">24</td>
+																	<td>Occupé</td>
+																	<td data-field="nom">David McHenry</td>
+																	<td data-field="date_inscription">25/10/2023</td>
+																	<td data-field="date_inscription">25/12/2023</td>
+																	<td>
+														<div class="main-toggle-group">
+															<div class="toggle toggle-danger">
+																<span></span>
+															</div>
+														</div>
+																	<td style="width: 100px">
+																		<div class="d-flex align-items-stretch">
+																			<a class="btn btn-sm btn-outline-secondary border data-table-btn me-2" data-bs-toggle="tooltip" data-bs-original-title="Supprimer">
+																				<svg xmlns="http://www.w3.org/2000/svg" height="20" viewbox="0 0 24 24" width="16"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5z"/></svg>
+																			</a>
+																			<a href="#" class="border br-5 px-2 py-1 d-flex align-items-center justify-content-center" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																				<i class="fe fe-more-vertical"></i>
+																			</a>
+																			<div class="dropdown-menu dropdown-menu-start">
+																				<a class="dropdown-item edit-icn" title="Edit">
+																					<i class="fe fe-edit-2 me-2"></i>
+																					Modifier</a>
+																				<a class="dropdown-item" href="#">
+																					<i class="fe fe-info me-2"></i>
+																					Plus d'infos</a>
+																			</div>
+																		</div>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- FOOTER -->
+								{% include "commun/footer.html.twig" %}
+								<!-- FOOTER END -->
+							</div>
+
+							<!-- BACK-TO-TOP -->
+							<a href="#top" id="back-to-top">
+								<i class="fa fa-long-arrow-up"></i>
+							</a>
+						</body>
+					{% endblock %}
