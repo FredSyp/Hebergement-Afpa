@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Afpa Hébergement - Signaler Incident
+{% endblock %}
+
+{% block body %}
+
+
+{% include "commun/header-utilisateur.html.twig" %}
+{% include "commun/side-bar-utilisateur.html.twig" %}
+
+<body class="ltr app sidebar-mini light-mode">
+
+    <!-- GLOBAL-LOADER -->
+    <div id="global-loader">
+        <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+    </div>
+    <!-- /GLOBAL-LOADER -->
+
+    <!-- PAGE -->
+    <div class="page">
+        <div class="page-main">
+            <!--app-content open-->
+            <div class="app-content main-content mt-0">
+                <div class="side-app">
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluid">
+                        <!-- PAGE-HEADER -->
+                        <div class="page-header">
+                            <div>
+                                <h1 class="page-title">Signaler un Incident</h1>
+                            </div>
+                            <div class="ms-auto pageheader-btn">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="{{path('app_accueil_utilisateur')}}">Accueil</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Signaler </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Un Incident</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- PAGE-HEADER END -->
+                        <!-- ROW-1 OPEN -->
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 mx-auto">
+                                <div class="card ">
+                                    <div class="card-header border-bottom">
+                                        <h3 class="card-title">FORMULAIRE</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row row-sm">
+                                            <form class="form-horizontal">
+                                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                                    <input class="form-control mb-4" placeholder="Type d'Incident"
+                                                        type="text">
+                                                </div>
+                                                <div class="form-group col-sm-12 col-md-12 col-lg-12">
+                                                    <input type="date" class="form-control" id="" placeholder="Date">
+                                                </div>
+                                                <div class="col-lg">
+                                                    <textarea class="form-control mb-4"
+                                                        placeholder="Description en détail de l'incident ..."
+                                                        rows="7"></textarea>
+                                                </div>
+                                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="form-group">
+                                                        <label for="formFileMultiple" class="form-label">Piece
+                                                            jointe</label>
+                                                        <input class="form-control file-input" type="file"
+                                                            id="formFileMultiple" multiple>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mt-4 text-center">
+                                                    <div>
+                                                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                                                        <button type="submit" class="btn btn-secondary">Annuler</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ROW-1 CLOSED -->
+                    </div>
+                    <!-- CONTAINER CLOSED -->
+                </div>
+            </div>
+            <!--app-content closed-->
+        </div>
+    </div>
+    <!-- PAGE END-->
+
+    {% include "commun/footer.html.twig" %}
+    <!-- BACK-TO-TOP -->
+    <a href="#top" id="back-to-top">
+        <i class="fa fa-long-arrow-up"></i>
+    </a>
+</body>
+{% endblock %}

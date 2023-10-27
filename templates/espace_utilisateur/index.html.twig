@@ -1,0 +1,214 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Afpa Hébergment - Mon Espace
+{% endblock %}
+
+
+{% block body %}
+
+	{% include "commun/header-utilisateur.html.twig" %}
+	{% include "commun/side-bar-utilisateur.html.twig" %}
+	<body
+		class="ltr app sidebar-mini light-mode">
+
+		<!-- GLOBAL-LOADER -->
+		<div id="global-loader">
+			<img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+		</div>
+		<!-- /GLOBAL-LOADER -->
+
+		<!-- PAGE -->
+		<div class="page">
+			<div
+				class="page-main">
+
+
+				<!--app-content open-->
+				<div class="app-content main-content mt-0">
+					<div
+						class="side-app">
+						<!-- CONTAINER -->
+						<div
+							class="main-container container-fluid">
+
+							<!-- PAGE-HEADER -->
+							<div class="page-header">
+								<div>
+									<h1 class="page-title">Mon Espace</h1>
+								</div>
+								<div class="ms-auto pageheader-btn">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item">
+											<a href="{{path('app_accueil_utilisateur')}}">Accueil</a>
+										</li>
+										<li class="breadcrumb-item active" aria-current="page">Mon Espace</li>
+									</ol>
+								</div>
+							</div>
+							<!-- PAGE-HEADER END -->
+							<!-- ROW-1 OPEN -->
+							<div class="row">
+								<div class="col-lg-6 col-md-12 mb-5">
+									<div class="card h-100">
+										<div class="card-header border-bottom">
+											<h3 class="card-title">Informations Bénéficiaire</h3>
+										</div>
+										<div class="card-body">
+											<h2>Prénom Nom</h2>
+											<h5>Numéro de bénéficiaire : 0 000 0000 0</h5>
+											<p>Adresse
+												<br>Ville
+												<br>
+												Code Postal</p>
+											<p>Adresse Mail
+												<br>numéro de Téléphone
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12 mb-5">
+									<div class="card h-100">
+										<div class="card-header border-bottom">
+											<h3 class="card-title">informations Centre et Formation</h3>
+										</div>
+										<div class="card-body">
+											<h4>Centre Afpa de: Ville</h4>
+											<h4>Formation: Intitulé de la formation
+											</h4>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- ROW-1 CLOSED -->
+
+							<div class="tab-pane" id="accountSettings">
+								<div class="card">
+									<div class="card-body">
+										<form class="form-horizontal" data-select2-id="11">
+											<div class="mb-4 main-content-label">Modifications Informations</div>
+											<div class="form-group ">
+												<div class="row row-sm">
+													<div class="col-md-3">
+														<label for="Adresse" class="form-label">Adresse</label>
+													</div>
+													<div class="col-md-9">
+														<input type="text" class="form-control" id="Adresse" placeholder="Adresse" value="">
+													</div>
+												</div>
+											</div>
+											<div class="form-group ">
+												<div class="row row-sm">
+													<div class="col-md-3">
+														<label for="Ville" class="form-label">Ville</label>
+													</div>
+													<div class="col-md-9">
+														<input type="text" class="form-control" id="Ville" placeholder="Ville" value="">
+													</div>
+												</div>
+											</div>
+											<div class="form-group ">
+												<div class="row row-sm">
+													<div class="col-md-3">
+														<label for="Code Postal" class="form-label">Code Postal</label>
+													</div>
+													<div class="col-md-9">
+														<input type="text" class="form-control" id="Code Postal" placeholder="Code Postal" value="">
+													</div>
+												</div>
+											</div>
+											<div class="form-group ">
+												<div class="row row-sm">
+													<div class="col-md-3">
+														<label for="eMail" class="form-label">Email</label>
+													</div>
+													<div class="col-md-9">
+														<input type="text" class="form-control" id="eMail" placeholder="Email" value="info@formation.fr">
+													</div>
+												</div>
+											</div>
+											<div class="form-group ">
+												<div class="row row-sm">
+													<div class="col-md-3">
+														<label for="Téléphone" class="form-label">Téléphone</label>
+													</div>
+													<div class="col-md-9">
+														<input type="text" class="form-control" id="Téléphone" placeholder="Téléphone" value="">
+													</div>
+												</div>
+											</div>
+											<div class="form-group ">
+												<div class="row row-sm">
+													<div class="col-md-3 col">
+														<label class="form-label">Verification</label>
+													</div>
+													<div class="col-md-9 col d-flex">
+														<div class="custom-checkbox custom-control mx-2">
+															<input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="Email">
+															<label for="Email" class="custom-control-label">Email</label>
+														</div>
+														<div class="custom-checkbox custom-control mx-2">
+															<input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="Sms">
+															<label for="Sms" class="custom-control-label">Sms</label>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div>
+												<div class="mb-4 main-content-label">Notifications</div>
+												<div class="form-group mb-0">
+													<div class="row row-sm">
+														<div class="col-md-3">
+															<label class="form-label">Configuration des Notifications</label>
+														</div>
+														<div class="col-md-9">
+															<label class="d-block">
+																<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
+																<span class="custom-switch-indicator"></span>
+																<span class="text-muted ms-2">Autoriser toutes les Notifications</span>
+															</label>
+															<label class="d-block">
+																<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																<span class="custom-switch-indicator"></span>
+																<span class="text-muted ms-2">Désactiver toutes les Notifications</span>
+															</label>
+															<label class="d-block">
+																<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
+																<span class="custom-switch-indicator"></span>
+																<span class="text-muted ms-2">Sons Notification</span>
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="form-group float-end">
+												<div class="row row-sm">
+													<div class="col-md-12">
+														<a class="btn btn-info my-1" href="#">Enregistrer les modifications</a>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- COL-END -->
+				</div>
+			</div>
+		</div>
+	</body>
+</div>
+<!-- CONTAINER CLOSED -->
+</div>
+</div>
+<!-- BACK-TO-TOP -->
+<a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i>
+</a>
+{% include "commun/footer.html.twig" %}
+</body>
+{% endblock %}
+
+

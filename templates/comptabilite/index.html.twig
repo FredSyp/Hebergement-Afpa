@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Afpa Hébergment - Comptabilité
+{% endblock %}
+{% block body %}
+
+	{% include "commun/header-admin.html.twig" %}
+	{% include "commun/side-bar-admin.html.twig" %}
+
+	<body
+		class="ltr app sidebar-mini light-mode">
+
+		<!-- GLOBAL-LOADER -->
+		<div id="global-loader">
+			<img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+		</div>
+		<!-- /GLOBAL-LOADER -->
+
+		<!-- PAGE -->
+		<div class="page">
+			<div
+				class="page-main">
+
+				<!--app-content open-->
+				<div class="app-content main-content mt-0">
+					<div
+						class="side-app">
+
+						<!-- CONTAINER -->
+						<div
+							class="main-container container-fluid">
+
+							<!-- PAGE-HEADER -->
+							<div class="page-header">
+								<div>
+									<h1 class="page-title">Comptabilité</h1>
+								</div>
+								<div class="ms-auto pageheader-btn">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item">
+											<a href="javascript:void(0);">Pages</a>
+										</li>
+										<li class="breadcrumb-item active" aria-current="page">Comptabilité</li>
+									</ol>
+								</div>
+							</div>
+							<!-- PAGE-HEADER END -->
+
+							<!-- ROW-1 OPEN -->
+							<div class="row">
+								<div class="col-lg-3 col-md-12">
+									<div class="card">
+										<div class="card-header border-bottom">
+											<h3 class="card-title">Location Journalière</h3>
+										</div>
+										<div class="card-body">
+											<div id="echart1" class="chartsh"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-12">
+									<div class="card">
+										<div class="card-header border-bottom">
+											<h3 class="card-title">Location Hebdomadaire</h3>
+										</div>
+										<div class="card-body">
+											<div id="echart11" class="chartsh"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-12">
+									<div class="card">
+										<div class="card-header border-bottom">
+											<h3 class="card-title">Location Mensuelle</h3>
+										</div>
+										<div class="card-body">
+											<div id="echart11" class="chartsh"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-12">
+									<div class="card">
+										<div class="card-header border-bottom">
+											<h3 class="card-title">Location Annuelle</h3>
+										</div>
+										<div class="card-body">
+											<div id="echart11" class="chartsh"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- ROW-1 CLOSED -->
+
+							<!-- ROW-2 OPEN -->
+							<div class="row row-sm">
+								<div class="col-lg-12">
+									<div class="card">
+										<div class="card-header border-bottom">
+											<h3 class="card-title">Fichier Chambres</h3>
+										</div>
+										<div class="card-body">
+											<div class="table-responsive">
+												<table class="table table-bordered text-nowrap border-bottom text-center" id="basic-datatable">
+													<thead>
+														<tr>
+															<th class="border-bottom-0">N° de Chambre</th>
+															<th class="border-bottom-0">N° Étage</th>
+															<th class="border-bottom-0">N° Bénéficiaire</th>
+                                                            <th class="border-bottom-0">Voir détail Chambre</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>2400525</td>
+															<td>2</td>
+															<td>14253877</td>
+                                                            <td><a href="#">Visualiser</a></td>
+														</tr>
+														<tr>
+															<td>2222222</td>
+															<td>4</td>
+															<td>65451235</td>
+                                                            <td><a href="#">Visualiser</a></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- ROW-2 CLOSED -->
+						</div>
+						<!-- CONTAINER CLOSED -->
+
+					</div>
+				</div>
+				<!--app-content closed-->
+
+			</div>
+		</div>
+		<!-- PAGE END-->
+
+		{% include "commun/footer.html.twig" %}
+		<!-- BACK-TO-TOP -->
+		<a href="#top" id="back-to-top">
+			<i class="fa fa-long-arrow-up"></i>
+		</a>
+
+	</body>
+{% endblock %}
+
