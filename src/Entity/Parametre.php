@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Parametre
  *
  * @ORM\Table(name="parametre", indexes={@ORM\Index(name="parametre_centre_FK", columns={"id_centre"})})
- * @ORM\Entity(repositoryClass= "App\Repository\ParametreRepository") 
+ * @ORM\Entity(repositoryClass= "App\Repository\ParametreRepository")
  */
 class Parametre
 {

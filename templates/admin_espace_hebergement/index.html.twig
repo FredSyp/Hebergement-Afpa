@@ -58,9 +58,9 @@
 											</div>
 											<div class="card-body">
 												<div class="table-responsive export-table">
-													<table id="editable-file-datatable" class="table editable-table deleted-table table-nowrap table-bordered table-edit wp-100">
+													<table id="tableau-heberges" class="table editable-table deleted-table table-nowrap table-bordered table-edit wp-100">
 														<thead>
-															<button id="button" class="btn btn-primary mb-4 data-table-btn">Ajouter un hébergé</button>
+															<button id="button" class="btn btn-primary mb-4 data-table-btn" onclick="ajouterLigne()">Ajouter un hébergé</button>
 															<tr>
 																<th>N° Bénéficiaire</th>
 																<th>Nom et Prénom</th>
@@ -116,5 +116,38 @@
 						<a href="#top" id="back-to-top">
 							<i class="fa fa-long-arrow-up"></i>
 						</a>
+
+						<script>
+							function ajouterLigne() {
+		var tableau = document.getElementById('tableau-heberges');
+		var newRow = tableau.insertRow(tableau.rows.length);
+		var cell1 = newRow.insertCell(0);
+		var cell2 = newRow.insertCell(1);
+		var cell3 = newRow.insertCell(2);
+		var cell4 = newRow.insertCell(3);
+		var cell5 = newRow.insertCell(4);
+  
+		cell1.innerHTML = 'Nouveau bénéficiaire';
+		cell2.innerHTML = 'Nouveau nom';
+		cell3.innerHTML = 'Nouveau numéro de chambre';
+		cell4.innerHTML = 'Nouvelle date d\'inscription';
+		cell5.innerHTML = '<div class="d-flex align-items-stretch"> \
+							 <a class="btn btn-sm btn-outline-secondary border data-table-btn me-2" data-bs-toggle="tooltip" data-bs-original-title="Supprimer"> \
+								<svg xmlns="http://www.w3.org/2000/svg" height="20" viewbox="0 0 24 24" width="16"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5z"/></svg> \
+							 </a> \
+							 <a href="#" class="border br-5 px-2 py-1 d-flex align-items-center justify-content-center" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> \
+								<i class="fe fe-more-vertical"></i> \
+							 </a> \
+							 <div class="dropdown-menu dropdown-menu-start"> \
+								<a class="dropdown-item edit-icn" title="Edit"> \
+								   <i class="fe fe-edit-2 me-2"></i> \
+								   Modifier</a> \
+								<a class="dropdown-item" href="#"> \
+								   <i class="fe fe-info me-2"></i> \
+								   Plus d\'infos</a> \
+							 </div> \
+						  </div>';
+	 }
+						</script>
 					</body>
 				{% endblock %}

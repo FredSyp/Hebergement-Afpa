@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Vacance
  *
  * @ORM\Table(name="vacance", indexes={@ORM\Index(name="vacance_session_FK", columns={"id_session"})})
- * @ORM\Entity(repositoryClass= "App\Repository\VacanceRepository") 
+ * @ORM\Entity(repositoryClass= "App\Repository\VacanceRepository")
  */
 class Vacance
 {

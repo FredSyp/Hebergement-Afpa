@@ -2,21 +2,17 @@
 
 namespace App\Entity;
 
-use Civilite;
-use RolePersonne;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-
 
 /**
  * Personne
  *
- * @ORM\Table(name="personne", indexes={@ORM\Index(name="personne_role_personne_FK", columns={"id_role_personne"}), @ORM\Index(name="personne_civilite0_FK", columns={"id_civilite"})})
- * @ORM\Entity(repositoryClass= "App\Repository\PersonneRepository") 
+ * @ORM\Table(name="personne", indexes={@ORM\Index(name="personne_civilite0_FK", columns={"id_civilite"}), @ORM\Index(name="personne_role_personne_FK", columns={"id_role_personne"})})
+ * @ORM\Entity(repositoryClass= "App\Repository\PersonneRepository")
  */
-class Personne implements PasswordAuthenticatedUserInterface, UserInterface
+class Personne implements UserInterface
 {
     /**
      * @var int
@@ -30,7 +26,7 @@ class Personne implements PasswordAuthenticatedUserInterface, UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="numero_beneficiaire", type="string", length=50, nullable=true)
+     * @ORM\Column(name="numero_beneficiaire", type="string", length=50, nullable=false)
      */
     private $numeroBeneficiaire;
 
@@ -44,42 +40,42 @@ class Personne implements PasswordAuthenticatedUserInterface, UserInterface
     /**
      * @var string|null
      *
-     * @ORM\Column(name="nom", type="string", length=150, nullable=false)
+     * @ORM\Column(name="nom", type="string", length=150, nullable=true)
      */
     private $nom;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="prenom", type="string", length=150, nullable=false)
+     * @ORM\Column(name="prenom", type="string", length=150, nullable=true)
      */
     private $prenom;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="email", type="string", unique=true, length=255, nullable=false)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="num_telephone", type="string", length=20, nullable=false)
+     * @ORM\Column(name="num_telephone", type="string", length=20, nullable=true)
      */
     private $numTelephone;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="date_naissance", type="date", nullable=false)
+     * @ORM\Column(name="date_naissance", type="date", nullable=true)
      */
     private $dateNaissance;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="lieu_naissance", type="string", length=255, nullable=false)
+     * @ORM\Column(name="lieu_naissance", type="string", length=255, nullable=true)
      */
     private $lieuNaissance;
 
@@ -126,7 +122,7 @@ class Personne implements PasswordAuthenticatedUserInterface, UserInterface
     private $dateMajPers;
 
     /**
-     * @var RolePersonne
+     * @var \RolePersonne
      *
      * @ORM\ManyToOne(targetEntity="RolePersonne")
      * @ORM\JoinColumns({
@@ -136,7 +132,7 @@ class Personne implements PasswordAuthenticatedUserInterface, UserInterface
     private $idRolePersonne;
 
     /**
-     * @var Civilite
+     * @var \Civilite
      *
      * @ORM\ManyToOne(targetEntity="Civilite")
      * @ORM\JoinColumns({
@@ -145,32 +141,6 @@ class Personne implements PasswordAuthenticatedUserInterface, UserInterface
      */
     private $idCivilite;
 
-
-    public function getUserIdentifier(): string
-    {
-        return $this->numeroBeneficiaire;
-    }
-    public function eraseCredentials(): void
-    {
-       
-    }
-    public function getSalt(): ?string
-    {
-        // You can leave this as null, unless you're using custom password hashing
-        return null;
-    }
-    public function getUsername(): string
-    {
-        return $this->numeroBeneficiaire;
-    }
-    public function getPassword(): string
-    {
-        return $this->mdp;
-    }
-    public function getRoles(): array
-    {
-        return [$this->codeRoles];
-    }
     public function getIdPersonne(): ?int
     {
         return $this->idPersonne;
@@ -284,12 +254,12 @@ class Personne implements PasswordAuthenticatedUserInterface, UserInterface
         return $this;
     }
 
-    public function getCodeRoles()
+    public function getCodeRoles(): ?string
     {
-        return array('ROLE_USER');
+        return $this->codeRoles;
     }
 
-    public function setCodeRoles( $codeRoles): static
+    public function setCodeRoles(string $codeRoles): static
     {
         $this->codeRoles = $codeRoles;
 

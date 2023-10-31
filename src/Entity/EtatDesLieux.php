@@ -8,8 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EtatDesLieux
  *
- * @ORM\Table(name="etat_des_lieux", indexes={@ORM\Index(name="etat_des_lieux_bail_FK", columns={"id_bail"}), @ORM\Index(name="etat_des_lieux_type_etat_lieux0_FK", columns={"id_type_etat_lieux"})})
- * @ORM\Entity(repositoryClass= "App\Repository\EtatDesLieuxRepository") 
+ * @ORM\Table(name="etat_des_lieux", indexes={@ORM\Index(name="etat_des_lieux_type_etat_lieux0_FK", columns={"id_type_etat_lieux"}), @ORM\Index(name="etat_des_lieux_bail_FK", columns={"id_bail"})})
+ * @ORM\Entity(repositoryClass= "App\Repository\EtatDesLieuxRepository")
  */
 class EtatDesLieux
 {
