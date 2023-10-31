@@ -26,7 +26,7 @@ class RolePersonne
      *
      * @ORM\Column(name="lib_role_personne", type="string", length=50, nullable=false)
      */
-    private $libRolePersonne;
+    private string $libRolePersonne;
 
     public function getIdRolePersonne(): ?int
     {
