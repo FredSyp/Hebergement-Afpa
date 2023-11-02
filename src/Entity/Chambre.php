@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Chambre
  *
  * @ORM\Table(name="chambre", indexes={@ORM\Index(name="chambre_etage_FK", columns={"id_etage"})})
- * @ORM\Entity(repositoryClass= "App\Repository\ChambreRepository") 
+ * @ORM\Entity
  */
 class Chambre
 {
@@ -65,83 +65,6 @@ class Chambre
      * })
      */
     private $idEtage;
-
-    public function getIdChambre(): ?int
-    {
-        return $this->idChambre;
-    }
-
-    public function getNumeroChambre(): ?string
-    {
-        return $this->numeroChambre;
-    }
-
-    public function setNumeroChambre(string $numeroChambre): static
-    {
-        $this->numeroChambre = $numeroChambre;
-
-        return $this;
-    }
-
-    public function getNumeroClefs(): ?string
-    {
-        return $this->numeroClefs;
-    }
-
-    public function setNumeroClefs(?string $numeroClefs): static
-    {
-        $this->numeroClefs = $numeroClefs;
-
-        return $this;
-    }
-
-    public function getBadge(): ?string
-    {
-        return $this->badge;
-    }
-
-    public function setBadge(?string $badge): static
-    {
-        $this->badge = $badge;
-
-        return $this;
-    }
-
-    public function getCleFrigo(): ?string
-    {
-        return $this->cleFrigo;
-    }
-
-    public function setCleFrigo(?string $cleFrigo): static
-    {
-        $this->cleFrigo = $cleFrigo;
-
-        return $this;
-    }
-
-    public function isIsUtilisable(): ?bool
-    {
-        return $this->isUtilisable;
-    }
-
-    public function setIsUtilisable(bool $isUtilisable): static
-    {
-        $this->isUtilisable = $isUtilisable;
-
-        return $this;
-    }
-
-    public function getIdEtage(): ?Etage
-    {
-        return $this->idEtage;
-    }
-
-    public function setIdEtage(?Etage $idEtage): static
-    {
-        $this->idEtage = $idEtage;
-
-        return $this;
-    }
 
 
 }

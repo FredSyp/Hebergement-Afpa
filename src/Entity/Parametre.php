@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Parametre
  *
  * @ORM\Table(name="parametre", indexes={@ORM\Index(name="parametre_centre_FK", columns={"id_centre"})})
- * @ORM\Entity(repositoryClass= "App\Repository\ParametreRepository") 
+ * @ORM\Entity
  */
 class Parametre
 {
@@ -45,47 +44,6 @@ class Parametre
      * })
      */
     private $idCentre;
-
-    public function getIdParametre(): ?int
-    {
-        return $this->idParametre;
-    }
-
-    public function getLoyer(): ?string
-    {
-        return $this->loyer;
-    }
-
-    public function setLoyer(string $loyer): static
-    {
-        $this->loyer = $loyer;
-
-        return $this;
-    }
-
-    public function getCaution(): ?string
-    {
-        return $this->caution;
-    }
-
-    public function setCaution(string $caution): static
-    {
-        $this->caution = $caution;
-
-        return $this;
-    }
-
-    public function getIdCentre(): ?Centre
-    {
-        return $this->idCentre;
-    }
-
-    public function setIdCentre(?Centre $idCentre): static
-    {
-        $this->idCentre = $idCentre;
-
-        return $this;
-    }
 
 
 }

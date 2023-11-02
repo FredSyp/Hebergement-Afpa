@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Region
  *
  * @ORM\Table(name="region")
- * @ORM\Entity(repositoryClass= "App\Repository\RegionRepository") 
+ * @ORM\Entity
  */
 class Region
 {
@@ -41,47 +41,6 @@ class Region
      * @ORM\Column(name="slug_region", type="string", length=150, nullable=false)
      */
     private $slugRegion;
-
-    public function getIdRegion(): ?int
-    {
-        return $this->idRegion;
-    }
-
-    public function getCodeRegion(): ?string
-    {
-        return $this->codeRegion;
-    }
-
-    public function setCodeRegion(string $codeRegion): static
-    {
-        $this->codeRegion = $codeRegion;
-
-        return $this;
-    }
-
-    public function getNomRegion(): ?string
-    {
-        return $this->nomRegion;
-    }
-
-    public function setNomRegion(string $nomRegion): static
-    {
-        $this->nomRegion = $nomRegion;
-
-        return $this;
-    }
-
-    public function getSlugRegion(): ?string
-    {
-        return $this->slugRegion;
-    }
-
-    public function setSlugRegion(string $slugRegion): static
-    {
-        $this->slugRegion = $slugRegion;
-
-        return $this;
-    }
 
 
 }

@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Intendant
  *
  * @ORM\Table(name="intendant", indexes={@ORM\Index(name="intendant_personne_FK", columns={"id_personne"})})
- * @ORM\Entity(repositoryClass= "App\Repository\intendantRepository") 
+ * @ORM\Entity
  */
 class Intendant
 {
@@ -52,59 +51,6 @@ class Intendant
      * })
      */
     private $idPersonne;
-
-    public function getIdIntendant(): ?int
-    {
-        return $this->idIntendant;
-    }
-
-    public function getNumTelIntendant(): ?string
-    {
-        return $this->numTelIntendant;
-    }
-
-    public function setNumTelIntendant(string $numTelIntendant): static
-    {
-        $this->numTelIntendant = $numTelIntendant;
-
-        return $this;
-    }
-
-    public function getDateDebExercice(): ?\DateTimeInterface
-    {
-        return $this->dateDebExercice;
-    }
-
-    public function setDateDebExercice(\DateTimeInterface $dateDebExercice): static
-    {
-        $this->dateDebExercice = $dateDebExercice;
-
-        return $this;
-    }
-
-    public function getDateDebFin(): ?\DateTimeInterface
-    {
-        return $this->dateDebFin;
-    }
-
-    public function setDateDebFin(?\DateTimeInterface $dateDebFin): static
-    {
-        $this->dateDebFin = $dateDebFin;
-
-        return $this;
-    }
-
-    public function getIdPersonne(): ?Personne
-    {
-        return $this->idPersonne;
-    }
-
-    public function setIdPersonne(?Personne $idPersonne): static
-    {
-        $this->idPersonne = $idPersonne;
-
-        return $this;
-    }
 
 
 }

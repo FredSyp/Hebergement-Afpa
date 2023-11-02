@@ -1,0 +1,32 @@
+.form-group {
+	margin-bottom: 1rem;
+	display: block;
+}
+.form-row {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -5px;
+	margin-left: -5px;
+	> {
+		.col, [class*="col-"] {
+			padding-right: 5px;
+			padding-left: 5px;
+		}
+	}
+}
+.valid-tooltip {
+	position: absolute;
+	top: 100%;
+	z-index: 5;
+	display: none;
+	max-width: 100%;
+	padding: .5rem;
+	margin-top: .1rem;
+	font-size: .875rem;
+	line-height: 1;
+	color: white;
+	background-color: rgb(94, 186, 0);
+	border-radius: .2rem;
+}

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Centre
  *
  * @ORM\Table(name="centre", indexes={@ORM\Index(name="centre_ville_FK", columns={"id_ville"})})
- * @ORM\Entity(repositoryClass= "App\Repository\CentreRepository") 
+ * @ORM\Entity
  */
 class Centre
 {
@@ -79,107 +79,6 @@ class Centre
      * })
      */
     private $idVille;
-
-    public function getIdCentre(): ?int
-    {
-        return $this->idCentre;
-    }
-
-    public function getNomCentre(): ?string
-    {
-        return $this->nomCentre;
-    }
-
-    public function setNomCentre(string $nomCentre): static
-    {
-        $this->nomCentre = $nomCentre;
-
-        return $this;
-    }
-
-    public function getAdresseCentre(): ?string
-    {
-        return $this->adresseCentre;
-    }
-
-    public function setAdresseCentre(?string $adresseCentre): static
-    {
-        $this->adresseCentre = $adresseCentre;
-
-        return $this;
-    }
-
-    public function getCompAdresseCentre(): ?string
-    {
-        return $this->compAdresseCentre;
-    }
-
-    public function setCompAdresseCentre(?string $compAdresseCentre): static
-    {
-        $this->compAdresseCentre = $compAdresseCentre;
-
-        return $this;
-    }
-
-    public function getSiren(): ?string
-    {
-        return $this->siren;
-    }
-
-    public function setSiren(?string $siren): static
-    {
-        $this->siren = $siren;
-
-        return $this;
-    }
-
-    public function getNumTva(): ?string
-    {
-        return $this->numTva;
-    }
-
-    public function setNumTva(?string $numTva): static
-    {
-        $this->numTva = $numTva;
-
-        return $this;
-    }
-
-    public function getNumTel(): ?string
-    {
-        return $this->numTel;
-    }
-
-    public function setNumTel(?string $numTel): static
-    {
-        $this->numTel = $numTel;
-
-        return $this;
-    }
-
-    public function getFax(): ?string
-    {
-        return $this->fax;
-    }
-
-    public function setFax(string $fax): static
-    {
-        $this->fax = $fax;
-
-        return $this;
-    }
-
-    public function getIdVille(): ?Ville
-    {
-        return $this->idVille;
-    }
-
-    public function setIdVille(?Ville $idVille): static
-    {
-        $this->idVille = $idVille;
-
-        return $this;
-    }
 
 
 }

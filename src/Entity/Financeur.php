@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Financeur
  *
  * @ORM\Table(name="financeur")
- * @ORM\Entity(repositoryClass= "App\Repository\FinanceurRepository") 
+ * @ORM\Entity
  */
 class Financeur
 {
@@ -34,35 +34,6 @@ class Financeur
      * @ORM\Column(name="logo_financeur", type="string", length=255, nullable=false)
      */
     private $logoFinanceur;
-
-    public function getIdFinanceur(): ?int
-    {
-        return $this->idFinanceur;
-    }
-
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): static
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getLogoFinanceur(): ?string
-    {
-        return $this->logoFinanceur;
-    }
-
-    public function setLogoFinanceur(string $logoFinanceur): static
-    {
-        $this->logoFinanceur = $logoFinanceur;
-
-        return $this;
-    }
 
 
 }

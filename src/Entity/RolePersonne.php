@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * RolePersonne
  *
  * @ORM\Table(name="role_personne")
- * @ORM\Entity(repositoryClass= "App\Repository\RolePersonneRepository") 
+ * @ORM\Entity
  */
 class RolePersonne
 {
@@ -27,23 +27,6 @@ class RolePersonne
      * @ORM\Column(name="lib_role_personne", type="string", length=50, nullable=false)
      */
     private $libRolePersonne;
-
-    public function getIdRolePersonne(): ?int
-    {
-        return $this->idRolePersonne;
-    }
-
-    public function getLibRolePersonne(): ?string
-    {
-        return $this->libRolePersonne;
-    }
-
-    public function setLibRolePersonne(string $libRolePersonne): static
-    {
-        $this->libRolePersonne = $libRolePersonne;
-
-        return $this;
-    }
 
 
 }

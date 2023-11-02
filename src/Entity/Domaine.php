@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Domaine
  *
  * @ORM\Table(name="domaine")
- * @ORM\Entity(repositoryClass= "App\Repository\DomaineRepository") 
+ * @ORM\Entity
  */
 class Domaine
 {
@@ -34,35 +34,6 @@ class Domaine
      * @ORM\Column(name="grn", type="string", length=20, nullable=false)
      */
     private $grn;
-
-    public function getIdDomaine(): ?int
-    {
-        return $this->idDomaine;
-    }
-
-    public function getLibDomaine(): ?string
-    {
-        return $this->libDomaine;
-    }
-
-    public function setLibDomaine(string $libDomaine): static
-    {
-        $this->libDomaine = $libDomaine;
-
-        return $this;
-    }
-
-    public function getGrn(): ?string
-    {
-        return $this->grn;
-    }
-
-    public function setGrn(string $grn): static
-    {
-        $this->grn = $grn;
-
-        return $this;
-    }
 
 
 }

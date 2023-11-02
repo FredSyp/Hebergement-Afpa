@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * InformationCentre
  *
  * @ORM\Table(name="information_centre", indexes={@ORM\Index(name="information_centre_centre_FK", columns={"id_centre"})})
- * @ORM\Entity(repositoryClass= "App\Repository\InformationCentreRepository") 
+ * @ORM\Entity
  */
 class InformationCentre
 {
@@ -59,71 +58,6 @@ class InformationCentre
      * })
      */
     private $idCentre;
-
-    public function getIdInformationCentre(): ?int
-    {
-        return $this->idInformationCentre;
-    }
-
-    public function getNomDocument(): ?string
-    {
-        return $this->nomDocument;
-    }
-
-    public function setNomDocument(string $nomDocument): static
-    {
-        $this->nomDocument = $nomDocument;
-
-        return $this;
-    }
-
-    public function getUrlDocument(): ?string
-    {
-        return $this->urlDocument;
-    }
-
-    public function setUrlDocument(string $urlDocument): static
-    {
-        $this->urlDocument = $urlDocument;
-
-        return $this;
-    }
-
-    public function getDateDepoDoc(): ?\DateTimeInterface
-    {
-        return $this->dateDepoDoc;
-    }
-
-    public function setDateDepoDoc(\DateTimeInterface $dateDepoDoc): static
-    {
-        $this->dateDepoDoc = $dateDepoDoc;
-
-        return $this;
-    }
-
-    public function getCommentaireDoc(): ?string
-    {
-        return $this->commentaireDoc;
-    }
-
-    public function setCommentaireDoc(string $commentaireDoc): static
-    {
-        $this->commentaireDoc = $commentaireDoc;
-
-        return $this;
-    }
-
-    public function getIdCentre(): ?Centre
-    {
-        return $this->idCentre;
-    }
-
-    public function setIdCentre(?Centre $idCentre): static
-    {
-        $this->idCentre = $idCentre;
-
-        return $this;
-    }
 
 
 }

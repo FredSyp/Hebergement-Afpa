@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Vacance
  *
  * @ORM\Table(name="vacance", indexes={@ORM\Index(name="vacance_session_FK", columns={"id_session"})})
- * @ORM\Entity(repositoryClass= "App\Repository\VacanceRepository") 
+ * @ORM\Entity
  */
 class Vacance
 {
@@ -45,47 +44,6 @@ class Vacance
      * })
      */
     private $idSession;
-
-    public function getIdVacance(): ?int
-    {
-        return $this->idVacance;
-    }
-
-    public function getDateDebVacance(): ?\DateTimeInterface
-    {
-        return $this->dateDebVacance;
-    }
-
-    public function setDateDebVacance(\DateTimeInterface $dateDebVacance): static
-    {
-        $this->dateDebVacance = $dateDebVacance;
-
-        return $this;
-    }
-
-    public function getDateFinVacance(): ?\DateTimeInterface
-    {
-        return $this->dateFinVacance;
-    }
-
-    public function setDateFinVacance(\DateTimeInterface $dateFinVacance): static
-    {
-        $this->dateFinVacance = $dateFinVacance;
-
-        return $this;
-    }
-
-    public function getIdSession(): ?Session
-    {
-        return $this->idSession;
-    }
-
-    public function setIdSession(?Session $idSession): static
-    {
-        $this->idSession = $idSession;
-
-        return $this;
-    }
 
 
 }

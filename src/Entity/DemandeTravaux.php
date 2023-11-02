@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * DemandeTravaux
  *
  * @ORM\Table(name="demande_travaux", indexes={@ORM\Index(name="demande_travaux_bail_FK", columns={"id_bail"})})
- * @ORM\Entity(repositoryClass= "App\Repository\DemandeTravauxRepository") 
+ * @ORM\Entity
  */
 class DemandeTravaux
 {
@@ -44,47 +44,6 @@ class DemandeTravaux
      * })
      */
     private $idBail;
-
-    public function getIdDemandeTravaux(): ?int
-    {
-        return $this->idDemandeTravaux;
-    }
-
-    public function getDescriptionDemande(): ?string
-    {
-        return $this->descriptionDemande;
-    }
-
-    public function setDescriptionDemande(string $descriptionDemande): static
-    {
-        $this->descriptionDemande = $descriptionDemande;
-
-        return $this;
-    }
-
-    public function getImgDemande(): ?string
-    {
-        return $this->imgDemande;
-    }
-
-    public function setImgDemande(string $imgDemande): static
-    {
-        $this->imgDemande = $imgDemande;
-
-        return $this;
-    }
-
-    public function getIdBail(): ?Bail
-    {
-        return $this->idBail;
-    }
-
-    public function setIdBail(?Bail $idBail): static
-    {
-        $this->idBail = $idBail;
-
-        return $this;
-    }
 
 
 }

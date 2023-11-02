@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Caution
  *
- * @ORM\Table(name="caution", indexes={@ORM\Index(name="caution_type_paiement0_FK", columns={"id_paiement"}), @ORM\Index(name="caution_bail_FK", columns={"id_bail"})})
- * @ORM\Entity(repositoryClass= "App\Repository\CautionRepository") 
+ * @ORM\Table(name="caution", indexes={@ORM\Index(name="caution_bail_FK", columns={"id_bail"}), @ORM\Index(name="caution_type_paiement0_FK", columns={"id_paiement"})})
+ * @ORM\Entity
  */
 class Caution
 {
@@ -62,71 +61,6 @@ class Caution
      * })
      */
     private $idPaiement;
-
-    public function getIdCaution(): ?int
-    {
-        return $this->idCaution;
-    }
-
-    public function getDateDepot(): ?\DateTimeInterface
-    {
-        return $this->dateDepot;
-    }
-
-    public function setDateDepot(\DateTimeInterface $dateDepot): static
-    {
-        $this->dateDepot = $dateDepot;
-
-        return $this;
-    }
-
-    public function getDateRestitution(): ?\DateTimeInterface
-    {
-        return $this->dateRestitution;
-    }
-
-    public function setDateRestitution(?\DateTimeInterface $dateRestitution): static
-    {
-        $this->dateRestitution = $dateRestitution;
-
-        return $this;
-    }
-
-    public function getMontantCaution(): ?string
-    {
-        return $this->montantCaution;
-    }
-
-    public function setMontantCaution(string $montantCaution): static
-    {
-        $this->montantCaution = $montantCaution;
-
-        return $this;
-    }
-
-    public function getIdBail(): ?Bail
-    {
-        return $this->idBail;
-    }
-
-    public function setIdBail(?Bail $idBail): static
-    {
-        $this->idBail = $idBail;
-
-        return $this;
-    }
-
-    public function getIdPaiement(): ?TypePaiement
-    {
-        return $this->idPaiement;
-    }
-
-    public function setIdPaiement(?TypePaiement $idPaiement): static
-    {
-        $this->idPaiement = $idPaiement;
-
-        return $this;
-    }
 
 
 }

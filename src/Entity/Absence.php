@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Absence
  *
  * @ORM\Table(name="absence", indexes={@ORM\Index(name="absence_bail_FK", columns={"id_bail"})})
- * @ORM\Entity(repositoryClass= "App\Repository\AbsenceRepository") 
+ * @ORM\Entity
  */
 class Absence
 {
@@ -52,59 +51,6 @@ class Absence
      * })
      */
     private $idBail;
-
-    public function getIdAbsence(): ?int
-    {
-        return $this->idAbsence;
-    }
-
-    public function getDateDebAbs(): ?\DateTimeInterface
-    {
-        return $this->dateDebAbs;
-    }
-
-    public function setDateDebAbs(\DateTimeInterface $dateDebAbs): static
-    {
-        $this->dateDebAbs = $dateDebAbs;
-
-        return $this;
-    }
-
-    public function getDateFinAbs(): ?\DateTimeInterface
-    {
-        return $this->dateFinAbs;
-    }
-
-    public function setDateFinAbs(\DateTimeInterface $dateFinAbs): static
-    {
-        $this->dateFinAbs = $dateFinAbs;
-
-        return $this;
-    }
-
-    public function getMotifAbsence(): ?string
-    {
-        return $this->motifAbsence;
-    }
-
-    public function setMotifAbsence(string $motifAbsence): static
-    {
-        $this->motifAbsence = $motifAbsence;
-
-        return $this;
-    }
-
-    public function getIdBail(): ?Bail
-    {
-        return $this->idBail;
-    }
-
-    public function setIdBail(?Bail $idBail): static
-    {
-        $this->idBail = $idBail;
-
-        return $this;
-    }
 
 
 }

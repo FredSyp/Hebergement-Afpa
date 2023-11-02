@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Bail
  *
- * @ORM\Table(name="bail", indexes={@ORM\Index(name="bail_personne0_FK", columns={"id_personne"}), @ORM\Index(name="bail_chambre_FK", columns={"id_chambre"})})
- * @ORM\Entity(repositoryClass= "App\Repository\BailRepository") 
+ * @ORM\Table(name="bail", indexes={@ORM\Index(name="bail_chambre_FK", columns={"id_chambre"}), @ORM\Index(name="bail_personne0_FK", columns={"id_personne"})})
+ * @ORM\Entity
  */
 class Bail
 {
@@ -44,16 +43,6 @@ class Bail
     private $isPresent;
 
     /**
-     * @var \Personne
-     *
-     * @ORM\ManyToOne(targetEntity="Personne")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_personne", referencedColumnName="id_personne")
-     * })
-     */
-    private $idPersonne;
-
-    /**
      * @var \Chambre
      *
      * @ORM\ManyToOne(targetEntity="Chambre")
@@ -63,70 +52,15 @@ class Bail
      */
     private $idChambre;
 
-    public function getIdBail(): ?int
-    {
-        return $this->idBail;
-    }
-
-    public function getDateEntree(): ?\DateTimeInterface
-    {
-        return $this->dateEntree;
-    }
-
-    public function setDateEntree(\DateTimeInterface $dateEntree): static
-    {
-        $this->dateEntree = $dateEntree;
-
-        return $this;
-    }
-
-    public function getDateSortie(): ?\DateTimeInterface
-    {
-        return $this->dateSortie;
-    }
-
-    public function setDateSortie(\DateTimeInterface $dateSortie): static
-    {
-        $this->dateSortie = $dateSortie;
-
-        return $this;
-    }
-
-    public function isIsPresent(): ?bool
-    {
-        return $this->isPresent;
-    }
-
-    public function setIsPresent(bool $isPresent): static
-    {
-        $this->isPresent = $isPresent;
-
-        return $this;
-    }
-
-    public function getIdPersonne(): ?Personne
-    {
-        return $this->idPersonne;
-    }
-
-    public function setIdPersonne(?Personne $idPersonne): static
-    {
-        $this->idPersonne = $idPersonne;
-
-        return $this;
-    }
-
-    public function getIdChambre(): ?Chambre
-    {
-        return $this->idChambre;
-    }
-
-    public function setIdChambre(?Chambre $idChambre): static
-    {
-        $this->idChambre = $idChambre;
-
-        return $this;
-    }
+    /**
+     * @var \Personne
+     *
+     * @ORM\ManyToOne(targetEntity="Personne")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_personne", referencedColumnName="id_personne")
+     * })
+     */
+    private $idPersonne;
 
 
 }
