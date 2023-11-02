@@ -1,6 +1,77 @@
 
 "use strict";
 
+<<<<<<< HEAD
+=======
+$("#utilisateur_adresse").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "https://api-adresse.data.gouv.fr/search/?q=8",
+                    data: {
+                        q: request.term
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        var addresses = [];
+                        response($.map(data.features, function (item) {
+                            return {
+                                label: item.properties.name + ", " + item.properties.postcode + " - " + item.properties.city,
+                                address: item.properties.name,
+                                postcode: item.properties.postcode,
+                                city: item.properties.city,
+                                value: item.properties.name,
+                                citycode: item.properties.citycode
+                            };
+                        }));
+                    }
+                });
+            },
+            select: function (event, ui) {
+                $('#utilisateur_adresse').val(ui.item.address);
+                $('#utilisateur_cp').val(ui.item.postcode);
+                $('#utilisateur_nom_Ville').val(ui.item.city);
+                $('#utilisateur_citycode').val(ui.item.citycode);
+            }
+        });
+
+document.addEventListener('DOMContentLoaded', function () {
+            // Sélectionnez le formulaire par son ID ou d'une manière appropriée
+            const form = document.querySelector('#modal-input');
+
+            form.addEventListener('submit', function (e) {
+                // Pas besoin de e.preventDefault() ici
+
+                // Soumettez le formulaire normalement
+                return true;
+            });
+            
+            // À la fin de la réponse du formulaire
+            form.onsubmit = async function (e) {
+                e.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+                const response = await fetch(e.target.action, {
+                    method: e.target.method,
+                    body: new FormData(e.target)
+                });
+
+                if (response.ok) {
+                    Swal.fire({
+                        title: 'Utilisateur enregistré',
+                        icon: 'success',
+                        showCancelButton: false,
+                        confirmButtonText: 'Continuer',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Redirigez l'utilisateur vers le tableau de bord
+                            window.location.href = '{{ path('app_admin_dashboard') }}';
+                        } 
+                    });
+                }
+            }
+        });
+
+>>>>>>> main
 (function ($) {
 
     // PAGE LOADING
