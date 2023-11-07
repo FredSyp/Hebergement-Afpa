@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Personne
@@ -12,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="personne", indexes={@ORM\Index(name="personne_civilite0_FK", columns={"id_civilite"}), @ORM\Index(name="personne_role_personne_FK", columns={"id_role_personne"})})
  * @ORM\Entity(repositoryClass= "App\Repository\PersonneRepository")
  */
-class Personne implements UserInterface
+class Personne
 {
     /**
      * @var int
