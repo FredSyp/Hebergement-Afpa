@@ -33,14 +33,14 @@
 						<!-- PAGE-HEADER -->
 						<div class="page-header">
 							<div>
-								<h1 class="page-title">Espace hébergés</h1>
+								<h1 class="page-title">Espace Locataire</h1>
 							</div>
 							<div class="ms-auto pageheader-btn">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item">
 										<a href="javascript:void(0);">Home</a>
 									</li>
-									<li class="breadcrumb-item active" aria-current="page">Espace hébergés</li>
+									<li class="breadcrumb-item active" aria-current="page">Espace Locataire</li>
 								</ol>
 							</div>
 						</div>
@@ -51,12 +51,11 @@
 								<div class="col-lg-12">
 									<div class="card">
 										<div class="card-header border-bottom">
-											<h3 class="card-title">Liste des hébergés</h3>
+											<h3 class="card-title">Liste des locataires</h3>
 										</div>
 										<div class="card-body">
 											<div class="table-responsive export-table">
-												<table id="editable-file-datatable"
-													class="table table-nowrap table-bordered wp-100">
+												<table id="editable-file-datatable" class="table table-nowrap table-bordered wp-100">
 													<thead>
 														<tr>
 															<th>N° Bénéficiaire</th>
@@ -69,18 +68,12 @@
 														{% for personne in personne %}
 														{% if 'ROLE_USER' in personne.codeRoles %}
 														<tr data-id="1">
-															<td data-field="numero_beneficiaire">{{
-																personne.numeroBeneficiaire}}</td>
-															<td data-field="nom">{{ personne.nom }} {{ personne.prenom
-																}}</td>
-															<td data-field="date_inscription">{{
-																personne.dateNaissance|date('d-m-Y') }}</td>
+															<td data-field="numero_beneficiaire">{{personne.numeroBeneficiaire}}</td>
+															<td data-field="nom">{{ personne.nom }} {{ personne.prenom}}</td>
+															<td data-field="date_inscription">{{personne.dateNaissance|date('d-m-Y') }}</td>
 															<td data-field="email">{{ personne.email}}</td>
 															<td class="text-muted fs-14 fw-semibold">
-																<a href="" class="btn btn-primary-light "
-																	id="show-details-btn"
-																	data-bs-target="#Vertically{{personne.idPersonne}}"
-																	data-bs-toggle="modal">Plus d'infos</a>
+																<a href="" class="btn btn-primary-light" id="show-details-btn" data-bs-target="#Vertically{{personne.idPersonne}}" data-bs-toggle="modal">Plus d'infos</a>
 															</td>
 														</tr>
 														{% endif %}
@@ -101,7 +94,7 @@
 								<div class="modal-content modal-content-demo">
 
 									<div class="modal-header p-5">
-										<h4 class="modal-title text-dark">Informations Hébergé</h4>
+										<h4 class="modal-title text-dark">Informations Locataire</h4>
 										<button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
 											type="button">
 											<span aria-hidden="true">&times;</span>

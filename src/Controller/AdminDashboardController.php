@@ -19,7 +19,7 @@ class AdminDashboardController extends AbstractController
         $rendezVous = $rdvRepository->findAll();
         $personne = $personneRepository->findAll();
         return $this->render('admin_dashboard/index.html.twig', [
-            'controller_name' => 'AdminEspaceHebergementController',
+            'controller_name' => 'AdminEspaceLocataireController',
             'personne' => $personne,
             'rendezVous' => $rendezVous
         ]);
@@ -27,7 +27,7 @@ class AdminDashboardController extends AbstractController
 
     public function redirectToSidebarTabs(): RedirectResponse
     {
-        $routes = ['admin_espace_hebergement', 'app_admin_chambres', 'app_admin_rendez_vous'];
+        $routes = ['admin_espace_locataire', 'app_admin_chambres', 'app_admin_rendez_vous'];
         foreach ($routes as $route) {
             $this->redirectToRoute($route);
         }
