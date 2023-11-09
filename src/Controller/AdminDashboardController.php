@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use DateTime;
 use App\Entity\Personne;
 use App\Entity\RolePersonne;
@@ -19,24 +20,15 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AdminDashboardController extends AbstractController
 {
-    public function generateAndHashPassword(string $numeroBeneficiaire, UserPasswordHasherInterface $passwordHasher): string
-    {
-        // Générer le mot de passe
-        $motDePasse = 'afpa' . $numeroBeneficiaire . '!';
-
-        // Hacher le mot de passe
-        $hashedPassword = $passwordHasher->hashPassword(new Personne(), $motDePasse);
-
-        return $hashedPassword;
-    }
-
     #[Route('/admin/dashboard', name: 'app_admin_dashboard')]
-    public function index(RendezVousRepository $rdvRepository, UserInterface $user, Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $entityManager): Response
+
+    public function index(RendezVousRepository $rdvRepository, PersonneRepository $personneRepository, UserInterface $user, Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $entityManager): Response
     {
+        $personne = $personneRepository->findAll();
+        $rendezVous = $rdvRepository->findAll();
         $user = $this->getUser();
         $form = $this->createForm(PersonneFormType::class, $user);
         $dateInscription = new DateTime();
-        $rendezVous = $rdvRepository->findAll();
         $form->handleRequest($request);
         $rolePersonneRepository = $entityManager->getRepository(RolePersonne::class);
         $rolePersonne = $rolePersonneRepository->find(1);
@@ -67,4 +59,24 @@ class AdminDashboardController extends AbstractController
         ]);
 
     }
+
+    public function generateAndHashPassword(string $numeroBeneficiaire, UserPasswordHasherInterface $passwordHasher): string
+    {
+        // Générer le mot de passe
+        $motDePasse = 'afpa' . $numeroBeneficiaire . '!';
+
+        // Hacher le mot de passe
+        $hashedPassword = $passwordHasher->hashPassword(new Personne(), $motDePasse);
+
+        return $hashedPassword;
+    }
+
+    public function redirectToSidebarTabs(): RedirectResponse
+    {
+        $routes = ['admin_espace_locataire', 'app_admin_chambres', 'app_admin_rendez_vous'];
+        foreach ($routes as $route) {
+            $this->redirectToRoute($route);
+        }
+    }
+
 }

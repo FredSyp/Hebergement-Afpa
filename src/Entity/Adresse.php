@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Adresse
  *
  * @ORM\Table(name="adresse", indexes={@ORM\Index(name="adresse_ville_FK", columns={"id_ville"}), @ORM\Index(name="adresse_personne0_FK", columns={"id_personne"})})
- * @ORM\Entity(repositoryClass= "App\Repository\AdresseRepository") 
+ * @ORM\Entity(repositoryClass= "App\Repository\AdresseRepository")
  */
 class Adresse
 {

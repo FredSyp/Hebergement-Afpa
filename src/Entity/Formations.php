@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Formations
  *
  * @ORM\Table(name="formations", indexes={@ORM\Index(name="formations_domaine_FK", columns={"id_domaine"})})
- * @ORM\Entity(repositoryClass= "App\Repository\FormationsRepository") 
+ * @ORM\Entity(repositoryClass= "App\Repository\FormationsRepository")
  */
 class Formations
 {
