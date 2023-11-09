@@ -5,8 +5,6 @@
 
 {% block body %}
 
-<body class="ltr app sidebar-mini">
-
 		{% if personne.email is null %}
 
 		<div class="modal-form" id="modal-input">
@@ -16,41 +14,39 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content modal-content-demo modal-form">
 								<div class="modal-body">
-									<form class="login100-form validate-form" method="post">
-							<span class="login100-form-title">
-								Inscription
-							</span>
-										{{ form_start(form) }}
-
+										{{ form_start(userForm) }}
+                                        <span class="login100-form-title">
+								             Inscription
+							            </span>
 										<div class="text-center wrap-input100 validate-input" data-bs-validate="Veuillez entrez une adresse valide par exemple : ex@abc.xyz">
-											{{ form_row(form.email, { 'attr': { 'class': 'input100' } }) }}
+											{{ form_row(userForm.email, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-inputuserF00"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(userForm.numeroBeneficiaire, { 'attr': { 'class': 'input100' } }) }}
 											<span class="focus-input100"></span>
 										</div>
 
 										<div class="text-center wrap-input100 validate-input">
-											{{ form_row(form.numeroBeneficiaire, { 'attr': { 'class': 'input100' } }) }}
+											{{ form_row(userForm.nom, { 'attr': { 'class': 'input100' } }) }}
 											<span class="focus-input100"></span>
 										</div>
 
 										<div class="text-center wrap-input100 validate-input">
-											{{ form_row(form.nom, { 'attr': { 'class': 'input100' } }) }}
+											{{ form_row(userForm.prenom, { 'attr': { 'class': 'input100' } }) }}
 											<span class="focus-input100"></span>
 										</div>
 
 										<div class="text-center wrap-input100 validate-input">
-											{{ form_row(form.prenom, { 'attr': { 'class': 'input100' } }) }}
-											<span class="focus-input100"></span>
-										</div>
-
-										<div class="text-center wrap-input100 validate-input">
-											{{ form_row(form.numTelephone, { 'attr': { 'class': 'input100' } }) }}
+											{{ form_row(userForm.numTelephone, { 'attr': { 'class': 'input100' } }) }}
 											<span class="focus-input100"></span>
 										</div>
 
 										<div class="form-group">
-											{{ form_label(form.dateNaissance, 'Date de naissance') }}
+											{{ form_label(userForm.dateNaissance, 'Date de naissance') }}
 											<div class="input-group date" id="dateNaissancePicker" data-target-input="nearest">
-												{{ form_widget(form.dateNaissance, { 'attr': { 'class': 'input-100 datetimepicker-input', 'data-target' : '#dateNaissancePicker' } }) }}
+												{{ form_widget(userForm.dateNaissance, { 'attr': { 'class': 'input-100 datetimepicker-input', 'data-target' : '#dateNaissancePicker' } }) }}
 												<div class="input-group-append" data-target="#dateNaissancePicker" data-toggle="datetimepicker">
 													<div class="input-group-text"><i class="fa fa-calendar"></i></div>
 												</div>
@@ -58,14 +54,14 @@
 										</div>
 
 										<div class="text-center wrap-input100 validate-input">
-											{{ form_row(form.lieuNaissance, { 'attr': { 'class': 'input100' } }) }}
+											{{ form_row(userForm.lieuNaissance, { 'attr': { 'class': 'input100' } }) }}
 											<span class="focus-input100"></span>
 										</div>
 
 										<div class="form-group">
-											{{ form_label(form.dateMajPers, 'Date de naissance') }}
+											{{ form_label(userForm.dateMajPers, 'Date de naissance') }}
 											<div class="input-group date" id="dateNaissancePicker" data-target-input="nearest">
-												{{ form_widget(form.dateMajPers, { 'attr': { 'class': 'input-100 datetimepicker-input', 'data-target' : '#dateNaissancePicker' } }) }}
+												{{ form_widget(userForm.dateMajPers, { 'attr': { 'class': 'input-100 datetimepicker-input', 'data-target' : '#dateNaissancePicker' } }) }}
 												<div class="input-group-append" data-target="#dateNaissancePicker" data-toggle="datetimepicker">
 													<div class="input-group-text"><i class="fa fa-calendar"></i></div>
 												</div>
@@ -74,13 +70,12 @@
 
 										<div class="text-center pt-3">
 											<p class="text-dark mb-0">Vous avez déjà un compte ?
-												{{ form_widget(form.submit, { 'attr': { 'class': 'text-primary ms-1'} }) }}
+												{{ form_widget(userForm.submit, { 'attr': { 'class': 'text-primary ms-1'} }) }}
 											</p>
 										</div>
 
-										{{ form_end(form) }}
+										{{ form_end(userForm) }}
 
-									</form>
 								</div>
 							</div>
 						</div>
@@ -89,8 +84,171 @@
 			</div>
 		</div>
 
-			
-	    {% else %}
+		{%  endif %}
+
+		{% if centre is empty %}
+
+		<div class="modal-form" id="modal-input">
+			<div class="card-body">
+				<div class="p-4">
+					<div class="modal d-block pos-static">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content modal-content-demo modal-form">
+								<div class="modal-body">
+										{{ form_start(centerForm) }}
+										<span class="login100-form-title">
+								             Centre
+							            </span>
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(centerForm.nomCentre, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-inputuserF00"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(centerForm.adresseCentre, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(centerForm.compAdresseCentre, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(centerForm.siren, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(centerForm.numTva, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(centerForm.numTel, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(centerForm.fax, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center pt-3">
+											<p class="text-dark mb-0">
+												{{ form_widget(centerForm.submit, { 'attr': { 'class': 'text-primary ms-1'} }) }}
+											</p>
+										</div>
+
+										{{ form_end(centerForm) }}
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		{%  endif %}
+
+		{% if etage is empty %}
+
+		<div class="modal-form" id="modal-input">
+			<div class="card-body">
+				<div class="p-4">
+					<div class="modal d-block pos-static">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content modal-content-demo modal-form">
+								<div class="modal-body">
+
+										{{ form_start(etageForm) }}
+										<span class="login100-form-title">
+								             Etages
+							            </span>
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(etageForm.numeroEtage,{ 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input-100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(etageForm.reserverFemme, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center pt-3">
+											<p class="text-dark mb-0">
+												{{ form_widget(etageForm.submit, { 'attr': { 'class': 'text-primary ms-1'} }) }}
+											</p>
+										</div>
+
+										{{ form_end(etageForm) }}
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		{%  endif %}
+
+		{% if chambre is empty %}
+
+		<div class="modal-form" id="modal-input">
+			<div class="card-body">
+				<div class="p-4">
+					<div class="modal d-block pos-static">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content modal-content-demo modal-form">
+								<div class="modal-body">
+
+										{{ form_start(chambreForm) }}
+										<span class="login100-form-title">
+								             Chambre
+							            </span>
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(chambreForm.numeroChambre,{ 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input-100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(chambreForm.numeroClefs, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(chambreForm.badge, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(chambreForm.cleFrigo, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(chambreForm.isUtilisable, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center pt-3">
+											<p class="text-dark mb-0">
+												{{ form_widget(chambreForm.submit, { 'attr': { 'class': 'text-primary ms-1'} }) }}
+											</p>
+										</div>
+
+										{{ form_end(chambreForm) }}
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		{%  endif %}
 
 		<!-- GLOBAL-LOADER -->
@@ -993,7 +1151,36 @@
 		<a href="#top" id="back-to-top">
 			<i class="fa fa-long-arrow-up"></i>
 		</a>
-
-</body>
-
+<script>
+        $("#centre_form_idVille").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "https://api-adresse.data.gouv.fr/search/?q=8",
+                    data: {
+                        q: request.term
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        var addresses = [];
+                        response($.map(data.features, function (item) {
+                            return {
+                                label: item.properties.name + ", " + item.properties.postcode + " - " + item.properties.city,
+                                address: item.properties.name,
+                                postcode: item.properties.postcode,
+                                city: item.properties.city,
+                                value: item.properties.name,
+                                citycode: item.properties.citycode
+                            };
+                        }));
+                    }
+                });
+            },
+            select: function (event, ui) {
+                $('#centre_form_adresseCentre').val(ui.item.address);
+            }
+        });
+    </script>
 {% endblock %}
+
+

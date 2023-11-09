@@ -53,6 +53,23 @@ class Absence
      */
     private $idBail;
 
+    /**
+     *@var string
+     *@ORM\Column(name="justificatif_absence", type="string", length=150, nullable=false)
+     */
+    private $justificatifAbsence;
+
+    public function getJustificatifAbsence():string
+    {
+        return $this->justificatifAbsence;
+    }
+
+    public function setJustificatifAbsence(string $justificatifAbsence):self
+    {
+        $this->justificatifAbsence = $justificatifAbsence;
+
+        return $this;
+    }
     public function getIdAbsence(): ?int
     {
         return $this->idAbsence;
