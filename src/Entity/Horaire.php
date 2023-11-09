@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Horaire
  *
- * @ORM\Table(name="horaire", indexes={@ORM\Index(name="horaire_intendant0_FK", columns={"id_intendant"}), @ORM\Index(name="horaire_jour_FK", columns={"id_jour"})})
- * @ORM\Entity(repositoryClass= "App\Repository\HoraireRepository") 
+ * @ORM\Table(name="horaire", indexes={@ORM\Index(name="horaire_jour_FK", columns={"id_jour"}), @ORM\Index(name="horaire_intendant0_FK", columns={"id_intendant"})})
+ * @ORM\Entity(repositoryClass= "App\Repository\HoraireRepository")
  */
 class Horaire
 {

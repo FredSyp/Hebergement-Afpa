@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TypeIncident
  *
  * @ORM\Table(name="type_incident")
- * @ORM\Entity(repositoryClass= "App\Repository\TypeIncidentRepository") 
+ * @ORM\Entity(repositoryClass= "App\Repository\TypeIncidentRepository")
  */
 class TypeIncident
 {

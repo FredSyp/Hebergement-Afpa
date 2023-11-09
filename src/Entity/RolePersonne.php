@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * RolePersonne
  *
  * @ORM\Table(name="role_personne")
- * @ORM\Entity(repositoryClass= "App\Repository\RolePersonneRepository") 
+ * @ORM\Entity(repositoryClass= "App\Repository\RolePersonneRepository")
  */
 class RolePersonne
 {
@@ -26,7 +26,7 @@ class RolePersonne
      *
      * @ORM\Column(name="lib_role_personne", type="string", length=50, nullable=false)
      */
-    private $libRolePersonne;
+    private string $libRolePersonne;
 
     public function getIdRolePersonne(): ?int
     {
