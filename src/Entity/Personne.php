@@ -2,17 +2,25 @@
 
 namespace App\Entity;
 
+use App\Entity\Civilite;
+use App\Entity\RolePersonne;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+
 
 /**
  * Personne
  *
- * @ORM\Table(name="personne", indexes={@ORM\Index(name="personne_civilite0_FK", columns={"id_civilite"}), @ORM\Index(name="personne_role_personne_FK", columns={"id_role_personne"})})
- * @ORM\Entity(repositoryClass= "App\Repository\PersonneRepository")
+ * @ORM\Table(name="personne", indexes={@ORM\Index(name="personne_role_personne_FK", columns={"id_role_personne"}), @ORM\Index(name="personne_civilite0_FK", columns={"id_civilite"})})
+ * @ORM\Entity(repositoryClass= "App\Repository\PersonneRepository") 
  */
-class Personne
+class Personne implements PasswordAuthenticatedUserInterface, UserInterface
 {
+    #[ORM\Column(type: 'json')]
+    private array $roles = [];
+
     /**
      * @var int
      *
@@ -25,14 +33,14 @@ class Personne
     /**
      * @var string
      *
-     * @ORM\Column(name="numero_beneficiaire", type="string", length=50, nullable=false)
+     * @ORM\Column(name="numero_beneficiaire", type="string", length=50, nullable=true)
      */
     private $numeroBeneficiaire;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mdp", type="string", length=150, nullable=false)
+     * @ORM\Column(name="mdp", type="string", length=150, nullable=true)
      */
     private $mdp;
 
@@ -53,7 +61,7 @@ class Personne
     /**
      * @var string|null
      *
-     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     * @ORM\Column(name="email", type="string", unique=true, length=255, nullable=true)
      */
     private $email;
 
@@ -88,7 +96,7 @@ class Personne
     /**
      * @var string
      *
-     * @ORM\Column(name="code_roles", type="string", length=25, nullable=false)
+     * @ORM\Column(name="code_roles", type="string", length=25, nullable=true)
      */
     private $codeRoles;
 
@@ -102,7 +110,7 @@ class Personne
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_inscription", type="date", nullable=false)
+     * @ORM\Column(name="date_inscription", type="date", nullable=true)
      */
     private $dateInscription;
 
@@ -121,7 +129,7 @@ class Personne
     private $dateMajPers;
 
     /**
-     * @var \RolePersonne
+     * @var RolePersonne
      *
      * @ORM\ManyToOne(targetEntity="RolePersonne")
      * @ORM\JoinColumns({
@@ -131,7 +139,7 @@ class Personne
     private $idRolePersonne;
 
     /**
-     * @var \Civilite
+     * @var Civilite
      *
      * @ORM\ManyToOne(targetEntity="Civilite")
      * @ORM\JoinColumns({
@@ -140,6 +148,34 @@ class Personne
      */
     private $idCivilite;
 
+
+    public function getUserIdentifier(): string
+    {
+        return $this->numeroBeneficiaire;
+    }
+    public function eraseCredentials(): void
+    {
+       
+    }
+    public function getSalt(): ?string
+    {
+        // You can leave this as null, unless you're using custom password hashing
+        return null;
+    }
+    public function getUsername(): string
+    {
+        return $this->numeroBeneficiaire;
+    }
+    public function getPassword(): string
+    {
+        return $this->mdp;
+    }
+    public function getRoles(): array
+    {
+
+
+        return [$this->codeRoles];
+    }
     public function getIdPersonne(): ?int
     {
         return $this->idPersonne;
@@ -253,9 +289,9 @@ class Personne
         return $this;
     }
 
-    public function getCodeRoles(): ?string
+    public function getCodeRoles():string
     {
-        return $this->codeRoles;
+        return   $this->codeRoles;
     }
 
     public function setCodeRoles(string $codeRoles): static

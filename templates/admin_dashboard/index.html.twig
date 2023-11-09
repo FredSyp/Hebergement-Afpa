@@ -21,6 +21,93 @@
 </style>
 
 <body class="ltr app sidebar-mini">
+
+		{% if personne.email is null %}
+
+		<div class="modal-form" id="modal-input">
+			<div class="card-body">
+				<div class="p-4">
+					<div class="modal d-block pos-static">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content modal-content-demo modal-form">
+								<div class="modal-body">
+									<form class="login100-form validate-form" method="post">
+							<span class="login100-form-title">
+								Inscription
+							</span>
+										{{ form_start(form) }}
+
+										<div class="text-center wrap-input100 validate-input" data-bs-validate="Veuillez entrez une adresse valide par exemple : ex@abc.xyz">
+											{{ form_row(form.email, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(form.numeroBeneficiaire, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(form.nom, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(form.prenom, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(form.numTelephone, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="form-group">
+											{{ form_label(form.dateNaissance, 'Date de naissance') }}
+											<div class="input-group date" id="dateNaissancePicker" data-target-input="nearest">
+												{{ form_widget(form.dateNaissance, { 'attr': { 'class': 'input-100 datetimepicker-input', 'data-target' : '#dateNaissancePicker' } }) }}
+												<div class="input-group-append" data-target="#dateNaissancePicker" data-toggle="datetimepicker">
+													<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+												</div>
+											</div>
+										</div>
+
+										<div class="text-center wrap-input100 validate-input">
+											{{ form_row(form.lieuNaissance, { 'attr': { 'class': 'input100' } }) }}
+											<span class="focus-input100"></span>
+										</div>
+
+										<div class="form-group">
+											{{ form_label(form.dateMajPers, 'Date de naissance') }}
+											<div class="input-group date" id="dateNaissancePicker" data-target-input="nearest">
+												{{ form_widget(form.dateMajPers, { 'attr': { 'class': 'input-100 datetimepicker-input', 'data-target' : '#dateNaissancePicker' } }) }}
+												<div class="input-group-append" data-target="#dateNaissancePicker" data-toggle="datetimepicker">
+													<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+												</div>
+											</div>
+										</div>
+
+										<div class="text-center pt-3">
+											<p class="text-dark mb-0">Vous avez déjà un compte ?
+												{{ form_widget(form.submit, { 'attr': { 'class': 'text-primary ms-1'} }) }}
+											</p>
+										</div>
+
+										{{ form_end(form) }}
+
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+			
+	    {% else %}
+		{%  endif %}
+
 		<!-- GLOBAL-LOADER -->
 		<div id="global-loader">
 			<img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
@@ -53,7 +140,7 @@
 								<div class="ms-auto pageheader-btn">
 									<ol class="breadcrumb">
 										<li class="breadcrumb-item">
-											<a href="javascript:void(0);">Home</a>
+											<a href="{{ path('app_login') }}">Home</a>
 										</li>
 										<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
 									</ol>

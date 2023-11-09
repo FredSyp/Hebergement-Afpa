@@ -184,6 +184,11 @@ License        :   Licensed under ThemeForest License
     box-sizing: border-box;
 }
 
+.modal-content-demo {
+  width: 80%; /* Largeur du modal */
+}
+
+
 html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
@@ -219,6 +224,76 @@ body {
     color: #495057;
     text-align: left;
     background-color: #f7f8f9;
+}
+
+.modal-form {
+    position: fixed;
+    top: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fond flouté */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    /* Assure que le modal est au-dessus de tout le reste */
+}
+
+
+#dateNaissancePicker .datetimepicker-input {
+    font-size: 20px;
+
+}
+
+#personne_form_dateNaissance select {
+    border-radius: 6px;
+    margin: 4px;
+}
+
+
+#dateNaissancePicker .input-group-text {
+    font-size: 20px;
+    border-radius: 6px;
+    margin: 4px;
+}
+
+#dateNaissancePicker {
+    margin: 0 auto;
+}
+
+#dateNaissancePicker .datetimepicker-input,
+#dateNaissancePicker .input-group-text {
+    text-align: center;
+}
+
+#dateMajPers .datetimepicker-input {
+    font-size: 20px;
+
+}
+
+#personne_form_dateMajPers select {
+    border-radius: 6px;
+    margin: 4px;
+}
+
+
+#dateMajPersPicker .input-group-text {
+    font-size: 20px;
+    border-radius: 6px;
+    margin: 4px;
+}
+
+#dateMajPersPicker {
+    margin: 0 auto;
+}
+
+#dateMajPersPicker .datetimepicker-input,
+#dateMajPersPicker .input-group-text {
+    text-align: center;
 }
 
 .number-font {
