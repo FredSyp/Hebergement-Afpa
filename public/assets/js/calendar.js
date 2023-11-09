@@ -21,7 +21,7 @@ $(function (e) {
         $('#tp4').timepicker('setTime', new Date());
     });
 })
-$('#calendar').fullCalendar({
+$('#calendar2').fullCalendar({
     header: {
       left: 'prev,next today',
       center: 'title',
