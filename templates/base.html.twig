@@ -5,17 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
-        {% endblock %}
-
-<<<<<<< HEAD
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-=======
-    <!-- FAVICON -->
+        <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico" />
 
     <!-- SWEETALERT -->
@@ -31,12 +21,12 @@
 
 			<!--- FONT-ICONS CSS -->
 			<link href="../assets/css/icons.css" rel="stylesheet"/>
-		{% endblock %}
-	</head>
+    </head>
+	   {% endblock %}
+    <body>
+        {% block body %}
+        {% endblock %}
 
-	
-
-		{% block body %}{% endblock %}
 		{% block javascripts %}
 			<!-- JQUERY JS -->
 			<script src="../assets/js/jquery.min.js"></script>
@@ -104,7 +94,3 @@
 		<script src="../assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
 		<script src="../assets/js/table-data.js"></script>
 		{% endblock %}
-	
-</html>
-
-
