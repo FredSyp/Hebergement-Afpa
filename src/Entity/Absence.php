@@ -44,6 +44,13 @@ class Absence
     private $motifAbsence;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="justificatif_absence", type="string", length=150, nullable=false)
+     */
+    private $justificatifAbsence;
+
+    /**
      * @var \Bail
      *
      * @ORM\ManyToOne(targetEntity="Bail")
@@ -107,4 +114,28 @@ class Absence
     }
 
 
+
+    /**
+     * Get the value of justificatifAbsence
+     *
+     * @return  string
+     */ 
+    public function getJustificatifAbsence()
+    {
+        return $this->justificatifAbsence;
+    }
+
+    /**
+     * Set the value of justificatifAbsence
+     *
+     * @param  string  $justificatifAbsence
+     *
+     * @return  self
+     */ 
+    public function setJustificatifAbsence(string $justificatifAbsence)
+    {
+        $this->justificatifAbsence = $justificatifAbsence;
+
+        return $this;
+    }
 }

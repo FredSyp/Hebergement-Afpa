@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Afpa Hébergement - Signaler Absence
+{% endblock %}
+
+{% block body %}
+{{ form_start(form) }}
+	<body
+		class="ltr app sidebar-mini light-mode">
+        
+		<!-- GLOBAL-LOADER -->
+		<div id="global-loader">
+			<img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+		</div>
+		<!-- /GLOBAL-LOADER -->
+        
+		<div class="page">
+			<div
+				class="page-main">
+				<!--app-content open-->
+				<div class="app-content main-content mt-0">
+					<div
+						class="side-app">
+						<!-- CONTAINER -->
+						<div
+							class="main-container container-fluid">
+							<!-- PAGE-HEADER -->
+							<div class="page-header">
+								<div>
+									<h1 class="page-title">Signalez une Absence</h1>
+								</div>
+								<div class="ms-auto pageheader-btn">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item">
+											<a href="">Accueil</a>
+										</li>
+										<li class="breadcrumb-item active" aria-current="page">Signalez</li>
+										<li class="breadcrumb-item active" aria-current="page">Absence</li>
+									</ol>
+								</div>
+							</div>
+							<!-- PAGE-HEADER END -->
+							<!-- ROW-1 OPEN -->
+							<div class="row">
+								<div class="col-lg-10 col-md-8 mx-auto">
+									<div class="card ">
+										<div class="card-header border-bottom">
+											<h3 class="card-title">FORMULAIRE DE DEMANDE D'ABSENCE</h3>
+										</div>
+										<div class="card-body">
+											<div class="row row-sm">
+												{{form_start(form)}}
+													<div class="col-sm-12 col-md-12 col-lg-12">
+														<select name="country" class="form-control form-select mb-2,5" id="default-dropdown" data-bs-placeholder="Select Country">
+															<option label="Motif..."></option>
+															<option value="br">Arrêt Maladie</option>
+															<option value="cz">Raison Personnel</option>
+															<option value="de">Rendez-vous Medicale</option>
+															<option value="pl">Vacances Annuelles</option>
+															<option value="pl">Congé</option>
+														</select>
+													</div>
+													<div class="form-group col-sm-12 col-md-12 col-lg-12">
+                                                    <label for="formFileMultiple" class="form-label">Date d'absence</label>
+														{{form_row(form.dateDebAbs)}}
+													</div>
+                                                    <div class="form-group col-sm-12 col-md-12 col-lg-12">
+                                                    <label for="formFileMultiple" class="form-label">Date de retour</label>  
+														{{form_row(form.dateFinAbs)}}
+													</div>
+													<div class="col-lg">
+													<label for="formFileMultiple" class="form-label">Motif</label>
+															{{form_row(form.motifAbsence)}}
+													</div>
+													<div class="col-sm-12 col-md-12 col-lg-12">
+														<div class="form-group">
+															<label for="formFileMultiple" class="form-label">Justificatif d'absence</label>
+															{{form_row(form.justificatifAbsence)}}
+														</div>
+													</div>
+													<div class="form-group mt-4 text-center">
+														<div>
+															<button type="submit" class="btn btn-primary">Envoyer</button>
+															<button type="submit" class="btn btn-secondary">Annuler</button>
+														</div>
+													</div>
+												{{form_end(form)}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							MES ABSENCES
+
+							{% if absences == "vide" %}
+								<h1>Aucune absence</h1> 
+							{% else %}
+							
+						<ul>
+    {% for absence in absences %}
+        <li>{{absence.dateDebAbs|date('d-m-Y')}} - {{absence.dateFinAbs|date('d-m-Y')}} : {{absence.motifAbsence}}</li>
+    {% endfor %}
+</ul>
+							{% endif %}
+
+
+						</div>
+					</div>
+					<!--app-content closed-->
+				</div>
+			</div>
+
+			<!-- PAGE END-->
+
+			{% include "widget/footer.html.twig" %}
+			<!-- BACK-TO-TOP -->
+			<a href="#top" id="back-to-top">
+				<i class="fa fa-long-arrow-up"></i>
+			</a>
+		</body>
+	{% endblock %}
