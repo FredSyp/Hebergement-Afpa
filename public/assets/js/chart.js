@@ -1,5 +1,5 @@
 $(function () {
-<<<<<<< HEAD
+ b22d83d8c180b7c15a7ddc83861e53921d55b016
 	'use strict'
 
 	// LIne-Chart 
@@ -537,7 +537,6 @@ $(function () {
 			},
 		}
 	});
-=======
     'use strict';
 
     // Taux d'occupation journalier (Chambres)
@@ -615,6 +614,6 @@ $(function () {
         data: chiffreAffaireData,
         options: options
     });
->>>>>>> main
+main
 
 });
