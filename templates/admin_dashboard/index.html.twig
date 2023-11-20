@@ -70,7 +70,7 @@
 
 										<div class="text-center pt-3">
 											<p class="text-dark mb-0">Vous avez déjà un compte ?
-												{{ form_widget(userForm.submit, { 'attr': { 'class': 'text-primary ms-1'} }) }}
+												{{ form_widget(userForm.submit, { 'attr': { 'class': 'text-primary ms-1', 'onclick': "showNextForm('modal-input', 'modal-input-center')"} }) }}
 											</p>
 										</div>
 
@@ -84,11 +84,9 @@
 			</div>
 		</div>
 
-		{%  endif %}
+		{% elseif centre is empty %}
 
-		{% if centre is empty %}
-
-		<div class="modal-form" id="modal-input">
+		<div class="modal-form hidden" id="modal-input">
 			<div class="card-body">
 				<div class="p-4">
 					<div class="modal d-block pos-static">
@@ -149,12 +147,10 @@
 				</div>
 			</div>
 		</div>
-		
-		{%  endif %}
 
-		{% if etage is empty %}
+		{% elseif etage is empty %}
 
-		<div class="modal-form" id="modal-input">
+		<div class="modal-form hidden" id="modal-input">
 			<div class="card-body">
 				<div class="p-4">
 					<div class="modal d-block pos-static">
@@ -191,12 +187,10 @@
 				</div>
 			</div>
 		</div>
-		
-		{%  endif %}
 
-		{% if chambre is empty %}
+		{% elseif chambre is empty %}
 
-		<div class="modal-form" id="modal-input">
+		<div class="modal-form hidden" id="modal-input">
 			<div class="card-body">
 				<div class="p-4">
 					<div class="modal d-block pos-static">
@@ -1152,6 +1146,7 @@
 			<i class="fa fa-long-arrow-up"></i>
 		</a>
 <script>
+
         $("#centre_form_idVille").autocomplete({
             source: function (request, response) {
                 $.ajax({

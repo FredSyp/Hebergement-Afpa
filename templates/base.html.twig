@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+<script>
+        function showNextForm(currentFormId, nextFormId) {
+            // Masquer le formulaire actuel
+            document.getElementById(currentFormId).classList.add('hidden');
+            
+            // Afficher le formulaire suivant
+            document.getElementById(nextFormId).classList.remove('hidden');
+        }
+    </script>
     <meta charset="UTF-8" />
     <title>
       AFPA hébergement -{% block title %}
